@@ -18,7 +18,7 @@ bld/
 [Bb]in/
 [Oo]bj/
 
-# Roslyn cache directories
+# Roslyn cache directories !
 *.ide/
 
 # MSTest test Results
