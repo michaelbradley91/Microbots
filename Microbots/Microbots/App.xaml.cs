@@ -1,17 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
+using Microbots.Ninject;
+using Microbots.Views;
+using Ninject;
 
 namespace Microbots
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
-    public partial class App : Application
+    public partial class App
     {
+        private IKernel _kernel;
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            ConfigureContainer();
+            ComposeObjects();
+            Current.MainWindow.Show();
+        }
+
+        private void ConfigureContainer()
+        {
+            _kernel = new StandardKernel();
+            _kernel.Load(new ServiceModule());
+        }
+
+        private void ComposeObjects()
+        {
+            Current.MainWindow = _kernel.Get<MainWindow>();
+        }
     }
 }

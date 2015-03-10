@@ -1,6 +1,7 @@
-﻿<Window x:Class="Microbots.MainWindow"
+﻿<Window x:Class="Microbots.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:views="clr-namespace:Microbots.Views"
         Title="Microbots" Height="800" Width="1000">
     <DockPanel LastChildFill="True">
         <Label DockPanel.Dock="Top" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" FontSize="32" 
@@ -12,8 +13,9 @@
                 <Label FontSize="32" HorizontalAlignment="Center">Menu</Label>
             </StackPanel>
         </Border>
+        <Border Name="RunMenu" DockPanel.Dock="Bottom" BorderThickness="3,0,3,3" BorderBrush="DarkGray"/>
         <Border BorderThickness="3" BorderBrush="DarkGray">
-            <Grid Name="WorldGrid" ShowGridLines="True">
+            <Grid Name="WorldGrid" ShowGridLines="True" Margin="0,-3,0,3">
             </Grid>
         </Border>
     </DockPanel>
