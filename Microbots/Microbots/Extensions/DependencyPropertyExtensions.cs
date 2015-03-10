@@ -43,28 +43,11 @@ namespace Microbots.Extensions
             return propertyName;
         }
 
-        public interface IDependencyProperties
+        private interface IDependencyProperties
         {
             void Add(String name, DependencyProperty property);
 
             DependencyProperty Find(String name);
-        }
-
-        public class DependencyProperties
-        {
-            private readonly static MethodInfo GetDependencyPropertiesInfo =
-              new Func<IDependencyProperties>(GetDependencyProperties<DependencyObject>).Method.GetGenericMethodDefinition();
-
-            private static IDependencyProperties GetDependencyProperties<TBase>()
-             where TBase : DependencyObject
-            {
-                return DependencyProperties<TBase>.Instance;
-            }
-
-            public static IDependencyProperties Get(Type type)
-            {
-                return (IDependencyProperties)GetDependencyPropertiesInfo.MakeGenericMethod(type).Invoke(null, null);
-            }
         }
 
         private class DependencyProperties<T> : IDependencyProperties

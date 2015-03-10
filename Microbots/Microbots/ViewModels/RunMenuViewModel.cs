@@ -1,5 +1,5 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
+using Microbots.Extensions;
 
 namespace Microbots.ViewModels
 {
@@ -13,27 +13,20 @@ namespace Microbots.ViewModels
         }
 
         public bool IsStartButtonEnabled {
-            get { return (bool) GetValue(IsStartButtonEnabledProperty); }
-            set { SetValue(IsStartButtonEnabledProperty, value); } 
-        }
-
-        public bool IsStopButtonEnabled
-        {
-            get { return (bool)GetValue(IsStopButtonEnabledProperty); }
-            set { SetValue(IsStopButtonEnabledProperty, value); }
+            get { return this.GetDependencyValue(s => s.IsStartButtonEnabled); }
+            set { this.SetDependencyValue(value, () => IsStartButtonEnabled = value); } 
         }
 
         public bool IsPauseButtonEnabled
         {
-            get { return (bool)GetValue(IsPauseButtonEnabledProperty); }
-            set { SetValue(IsPauseButtonEnabledProperty, value); }
+            get { return this.GetDependencyValue(s => s.IsPauseButtonEnabled); }
+            set { this.SetDependencyValue(value, () => IsPauseButtonEnabled = value); }
         }
 
-        public static readonly DependencyProperty IsStartButtonEnabledProperty = DependencyProperty.Register(
-            "IsStartButtonEnabled", typeof(Boolean), typeof(RunMenuViewModel), new PropertyMetadata(false));
-        public static readonly DependencyProperty IsStopButtonEnabledProperty = DependencyProperty.Register(
-            "IsStopButtonEnabled", typeof(Boolean), typeof(RunMenuViewModel), new PropertyMetadata(false));
-        public static readonly DependencyProperty IsPauseButtonEnabledProperty = DependencyProperty.Register(
-            "IsPauseButtonEnabled", typeof(Boolean), typeof(RunMenuViewModel), new PropertyMetadata(false));
+        public bool IsStopButtonEnabled
+        {
+            get { return this.GetDependencyValue(s => s.IsStopButtonEnabled); }
+            set { this.SetDependencyValue(value, () => IsStopButtonEnabled = value); }
+        }
     }
 }

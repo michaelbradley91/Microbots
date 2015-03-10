@@ -68,11 +68,15 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\WorldController.cs" />
+    <Compile Include="Controllers\WorldMenuController.cs" />
     <Compile Include="Controllers\RunMenuController.cs" />
     <Compile Include="Extensions\DependencyPropertyExtensions.cs" />
     <Compile Include="Helpers\WpfExtensions.cs" />
     <Compile Include="Ninject\ServiceModule.cs" />
     <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="ViewModels\WorldViewModel.cs" />
+    <Compile Include="ViewModels\WorldMenuViewModel.cs" />
     <Compile Include="ViewModels\RunMenuViewModel.cs" />
     <Compile Include="Views\RunMenuView.xaml.cs">
       <DependentUpon>RunMenuView.xaml</DependentUpon>
@@ -81,15 +85,29 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Views\MainWindow.xaml">
+    <Compile Include="Views\WorldView.xaml.cs">
+      <DependentUpon>WorldView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WorldMenuView.xaml.cs">
+      <DependentUpon>WorldMenuView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\StartView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Views\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="Views\StartView.xaml.cs">
+      <DependentUpon>StartView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\RunMenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WorldView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\WorldMenuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
