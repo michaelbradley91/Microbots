@@ -16,23 +16,23 @@ namespace Microbots.Ninject
 
         public void LoadControllers()
         {
-            Bind<IRunMenuController>().To<RunMenuController>().InTransientScope();
-            Bind<IWorldMenuController>().To<WorldMenuController>().InTransientScope();
-            Bind<IWorldController>().To<WorldController>().InTransientScope();
+            Bind<IRunMenuController>().To<RunMenuController>().InSingletonScope();
+            Bind<IWorldMenuController>().To<WorldMenuController>().InSingletonScope();
+            Bind<IWorldController>().To<WorldController>().InSingletonScope();
         }
 
         public void LoadViewModels()
         {
-            Bind<RunMenuViewModel>().ToSelf().InTransientScope();
-            Bind<WorldMenuViewModel>().ToSelf().InTransientScope();
-            Bind<WorldViewModel>().ToSelf().InTransientScope();
+            Bind<RunMenuViewModel>().ToSelf().InSingletonScope();
+            Bind<WorldMenuViewModel>().ToSelf().InSingletonScope();
+            Bind<WorldViewModel>().ToSelf().InSingletonScope();
         }
 
         public void LoadViews()
         {
-            Bind<RunMenuView>().ToSelf().InTransientScope();
-            Bind<WorldMenuView>().ToSelf().InTransientScope();
-            Bind<WorldView>().ToSelf().InTransientScope();
+            Bind<RunMenuView>().ToSelf().InSingletonScope();
+            Bind<WorldMenuView>().ToSelf().InSingletonScope();
+            Bind<WorldView>().ToSelf().InSingletonScope();
         }
     }
 }

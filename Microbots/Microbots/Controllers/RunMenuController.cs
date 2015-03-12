@@ -1,4 +1,5 @@
-﻿using Microbots.ViewModels;
+﻿using System.Windows.Media;
+using Microbots.ViewModels;
 
 namespace Microbots.Controllers
 {
@@ -13,10 +14,12 @@ namespace Microbots.Controllers
     public class RunMenuController : IRunMenuController
     {
         public RunMenuViewModel RunMenuViewModel { get; private set; }
+        public IWorldController WorldController { get; set; }
 
-        public RunMenuController(RunMenuViewModel runMenuViewModel)
+        public RunMenuController(RunMenuViewModel runMenuViewModel, IWorldController worldController)
         {
             RunMenuViewModel = runMenuViewModel;
+            WorldController = worldController;
         }
 
         public void Start()
@@ -24,6 +27,11 @@ namespace Microbots.Controllers
             RunMenuViewModel.IsPauseButtonEnabled = true;
             RunMenuViewModel.IsStopButtonEnabled = true;
             RunMenuViewModel.IsStartButtonEnabled = false;
+            WorldController.WorldViewModel.WorldSquares = WorldViewModel.CreateWorldSquares(5, 5);
+            foreach (var square in WorldController.WorldViewModel.WorldSquares)
+            {
+                square.Colour = Brushes.Red;
+            }
         }
 
         public void Pause()
@@ -38,6 +46,11 @@ namespace Microbots.Controllers
             RunMenuViewModel.IsPauseButtonEnabled = false;
             RunMenuViewModel.IsStopButtonEnabled = false;
             RunMenuViewModel.IsStartButtonEnabled = true;
+            WorldController.WorldViewModel.WorldSquares = WorldViewModel.CreateWorldSquares(3, 3);
+            foreach (var square in WorldController.WorldViewModel.WorldSquares)
+            {
+                square.Colour = Brushes.Green;
+            }
         }
     }
 }

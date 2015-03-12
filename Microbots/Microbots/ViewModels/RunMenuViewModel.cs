@@ -1,9 +1,8 @@
-﻿using System.Windows;
-using Microbots.Extensions;
+﻿using Microbots.Helpers;
 
 namespace Microbots.ViewModels
 {
-    public class RunMenuViewModel : DependencyObject
+    public class RunMenuViewModel : Bindable
     {
         public RunMenuViewModel()
         {
@@ -12,21 +11,8 @@ namespace Microbots.ViewModels
             IsPauseButtonEnabled = false;
         }
 
-        public bool IsStartButtonEnabled {
-            get { return this.GetDependencyValue(s => s.IsStartButtonEnabled); }
-            set { this.SetDependencyValue(value, () => IsStartButtonEnabled = value); } 
-        }
-
-        public bool IsPauseButtonEnabled
-        {
-            get { return this.GetDependencyValue(s => s.IsPauseButtonEnabled); }
-            set { this.SetDependencyValue(value, () => IsPauseButtonEnabled = value); }
-        }
-
-        public bool IsStopButtonEnabled
-        {
-            get { return this.GetDependencyValue(s => s.IsStopButtonEnabled); }
-            set { this.SetDependencyValue(value, () => IsStopButtonEnabled = value); }
-        }
+        public bool IsStartButtonEnabled { get { return Get<bool>(); } set { Set(value); } }
+        public bool IsPauseButtonEnabled { get { return Get<bool>(); } set { Set(value); } }
+        public bool IsStopButtonEnabled { get { return Get<bool>(); } set { Set(value); } }
     }
 }

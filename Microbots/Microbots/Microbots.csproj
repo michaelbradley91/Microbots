@@ -35,6 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Expression.Interactions">
+      <HintPath>..\packages\Blend.Interctivity.WPF.v4.0.1.0.3\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Practices.Prism.Mvvm">
       <HintPath>..\packages\Prism.Mvvm.1.1.1\lib\net45\Microsoft.Practices.Prism.Mvvm.dll</HintPath>
     </Reference>
@@ -52,6 +56,9 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Blend.Interctivity.WPF.v4.0.1.0.3\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -68,16 +75,24 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Attributes\InitializationMethodAttribute.cs" />
+    <Compile Include="Attributes\AutoListenerAttribute.cs" />
+    <Compile Include="Attributes\StyleElementAttribute.cs" />
+    <Compile Include="Attributes\ControlElementAttribute.cs" />
     <Compile Include="Controllers\WorldController.cs" />
     <Compile Include="Controllers\WorldMenuController.cs" />
     <Compile Include="Controllers\RunMenuController.cs" />
-    <Compile Include="Extensions\DependencyPropertyExtensions.cs" />
-    <Compile Include="Helpers\WpfExtensions.cs" />
+    <Compile Include="Extensions\DependencyObjectExtensions.cs" />
+    <Compile Include="Extensions\WpfExtensions.cs" />
+    <Compile Include="Helpers\Bindable.cs" />
+    <Compile Include="Helpers\ReflectionHelper.cs" />
     <Compile Include="Ninject\ServiceModule.cs" />
     <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="ViewModels\WorldSquareViewModel.cs" />
     <Compile Include="ViewModels\WorldViewModel.cs" />
     <Compile Include="ViewModels\WorldMenuViewModel.cs" />
     <Compile Include="ViewModels\RunMenuViewModel.cs" />
+    <Compile Include="Views\MicrobotsView.cs" />
     <Compile Include="Views\RunMenuView.xaml.cs">
       <DependentUpon>RunMenuView.xaml</DependentUpon>
     </Compile>

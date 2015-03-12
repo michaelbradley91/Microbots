@@ -14,6 +14,7 @@ namespace Microbots.Controllers
         public WorldController(WorldViewModel worldViewModel)
         {
             WorldViewModel = worldViewModel;
+            WorldViewModel.WorldSquares = WorldViewModel.CreateWorldSquares(3, 3);
         }
     }
 }

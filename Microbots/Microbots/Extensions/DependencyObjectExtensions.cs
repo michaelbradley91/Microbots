@@ -5,8 +5,20 @@ using System.Windows;
 
 namespace Microbots.Extensions
 {
-    public static class DependencyPropertyExtensions
+    /// <summary>
+    /// Provides a convenient way to create dependency properties. These can be bound to by a view, but cannot
+    /// be easily listened to for changes programatically.
+    /// 
+    /// Example: 
+    /// public bool IsStartButtonEnabled {
+    ///    get { return this.GetDependencyValue(s => s.IsStartButtonEnabled); }
+    ///    set { this.SetDependencyValue(value, () => IsStartButtonEnabled = value); } 
+    /// }
+    /// Use 
+    /// </summary>
+    public static class DependencyObjectExtensions
     {
+
         public static void SetDependencyValue<TSource, TProperty>(this TSource source, TProperty newValue, Action emptyAction)
             where TSource : DependencyObject
         {
