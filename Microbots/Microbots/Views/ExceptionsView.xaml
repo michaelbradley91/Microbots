@@ -3,6 +3,57 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModels="clr-namespace:Microbots.ViewModels"
              mc:Ignorable="d">
-    
+    <UserControl.Resources>
+        <ControlTemplate x:Key="CloseAllExceptionsButtonTemplate" TargetType="Button">
+            <Border Background="Transparent">
+                <Path Name="CloseButtonPath" Data="M0,0 L30,30 M30,0 L0,30" Margin="12,12,12,12" StrokeThickness="3" />
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="False">
+                    <Setter TargetName="CloseButtonPath" Property="Stroke" Value="Black" />
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter TargetName="CloseButtonPath" Property="Stroke" Value="Red" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <ControlTemplate x:Key="CloseExceptionButtonTemplate" TargetType="Button">
+            <Border Background="Transparent">
+                <Path Name="CloseButtonPath" Data="M0,0 L20,20 M20,0 L0,20" Margin="12,12,12,12" StrokeThickness="3" />
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="False">
+                    <Setter TargetName="CloseButtonPath" Property="Stroke" Value="Black" />
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter TargetName="CloseButtonPath" Property="Stroke" Value="Red" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </UserControl.Resources>
+    <StackPanel Background="Pink" HorizontalAlignment="Stretch" MinWidth="400">
+        <Grid>
+            <Label Grid.Row="0" Grid.Column="0" HorizontalContentAlignment="Center" HorizontalAlignment="Stretch" FontSize="32">Exceptions</Label>
+            <Button Template="{StaticResource ResourceKey=CloseAllExceptionsButtonTemplate}" Grid.Row="0" Grid.Column="0" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Click="ClearExceptions" />
+        </Grid>
+        <ItemsControl ItemsSource="{Binding Path=Exceptions, Mode=OneWay}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate DataType="viewModels:ExceptionViewModel">
+                    <Border BorderThickness="0,2,0,0" BorderBrush="DarkGray">
+                        <DockPanel>
+                            <Button DockPanel.Dock="Right" Template="{StaticResource ResourceKey=CloseExceptionButtonTemplate}" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Click="ClearException" />
+                            <TextBlock TextWrapping="Wrap" Background="Transparent" FontSize="24" Foreground="Red" HorizontalAlignment="Stretch" Margin="15,0,0,0" Text="{Binding Path=Summary, Mode=OneWay}" />
+                        </DockPanel>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </StackPanel>
 </UserControl>

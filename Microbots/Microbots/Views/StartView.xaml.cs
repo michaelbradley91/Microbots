@@ -1,18 +1,25 @@
-﻿namespace Microbots.Views
+﻿using Microbots.ViewModels;
+
+namespace Microbots.Views
 {
-    public partial class MainWindow
+    public partial class StartView
     {
-        public MainWindow(
+        public StartView(
             RunMenuView runMenuView, 
             WorldMenuView worldMenuView,
             WorldView worldView,
-            ExceptionsView exceptionsView)
+            ExceptionsView exceptionsView,
+            StartViewModel startViewModel)
         {
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
+
             RunMenu.Child = runMenuView;
             WorldMenu.Child = worldMenuView;
             World.Child = worldView;
             Exceptions.Child = exceptionsView;
+
+            DataContext = startViewModel;
         }
     }
 }

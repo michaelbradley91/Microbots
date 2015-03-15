@@ -26,7 +26,7 @@ namespace Microbots
 
         private void ComposeObjects()
         {
-            Current.MainWindow = _kernel.Get<MainWindow>();
+            Current.MainWindow = _kernel.Get<StartView>();
         }
     }
 }

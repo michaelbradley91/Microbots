@@ -8,5 +8,10 @@ namespace Microbots.Extensions
         {
             return (Style)frameworkElement.FindResource(key);
         }
+
+        public static T GetDataContext<T>(this object sender)
+        {
+            return (T)((FrameworkElement) sender).DataContext;
+        }
     }
 }

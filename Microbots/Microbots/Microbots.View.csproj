@@ -75,6 +75,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\ExceptionsController.cs" />
+    <Compile Include="Controllers\StartController.cs" />
     <Compile Include="Controllers\WorldController.cs" />
     <Compile Include="Controllers\WorldMenuController.cs" />
     <Compile Include="Controllers\RunMenuController.cs" />
@@ -83,7 +85,9 @@
     <Compile Include="ViewModels\Helpers\ObservableModel.cs" />
     <Compile Include="Ninject\ServiceModule.cs" />
     <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="ViewModels\ExceptionsViewModel.cs" />
     <Compile Include="ViewModels\WorldSquareViewModel.cs" />
+    <Compile Include="ViewModels\StartViewModel.cs" />
     <Compile Include="ViewModels\WorldViewModel.cs" />
     <Compile Include="ViewModels\WorldMenuViewModel.cs" />
     <Compile Include="ViewModels\RunMenuViewModel.cs" />

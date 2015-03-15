@@ -1,4 +1,4 @@
-﻿<Window x:Class="Microbots.Views.MainWindow"
+﻿<Window x:Class="Microbots.Views.StartView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Microbots" MinHeight="640" Height="860" MinWidth="750" Width="1000">
@@ -10,10 +10,14 @@
         <Border Name="WorldMenu" DockPanel.Dock="Left" BorderThickness="3,3,0,3" BorderBrush="DarkGray" Width="200" />
         <Border Name="RunMenu" DockPanel.Dock="Bottom" BorderThickness="3,0,3,3" BorderBrush="DarkGray" Height="60" />
         <Border BorderThickness="3" BorderBrush="DarkGray" >
-            <StackPanel>
-                <Border Name="Exceptions" />
-                <Border Name="World" />
-            </StackPanel>
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Border Grid.Row="0" Grid.Column="0" Grid.ZIndex="2" Margin="0,-1,0,0" Visibility="{Binding Path=ExceptionVisiblity, Mode=OneWay}">
+                    <StackPanel>
+                        <Border BorderThickness="0,0,0,3" BorderBrush="DarkGray" Name="Exceptions"></Border>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="0" Grid.Column="0" Grid.ZIndex="1" Name="World" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+            </Grid>
         </Border>
     </DockPanel>
 </Window>
