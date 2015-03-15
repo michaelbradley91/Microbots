@@ -1,8 +1,9 @@
-﻿using Microbots.Helpers;
+﻿using Microbots.Common.Extensions;
+using Microbots.ViewModels.Helpers;
 
 namespace Microbots.ViewModels
 {
-    public class WorldViewModel : Bindable
+    public class WorldViewModel : ObservableModel
     {
         public WorldViewModel()
         {
@@ -14,13 +15,7 @@ namespace Microbots.ViewModels
         public static WorldSquareViewModel[,] CreateWorldSquares(int rows, int columns)
         {
             var worldSquares = new WorldSquareViewModel[rows, columns];
-            for (var row = 0; row < rows; row++)
-            {
-                for (var column = 0; column < columns; column++)
-                {
-                    worldSquares[row, column] = new WorldSquareViewModel();
-                }
-            }
+            worldSquares.SetAllTo(() => new WorldSquareViewModel());
             return worldSquares;
         }
     }

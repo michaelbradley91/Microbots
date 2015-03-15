@@ -5,7 +5,6 @@ namespace Microbots.Controllers
 {
     public interface IRunMenuController
     {
-        RunMenuViewModel RunMenuViewModel { get; }
         void Start();
         void Pause();
         void Stop();
@@ -13,22 +12,22 @@ namespace Microbots.Controllers
 
     public class RunMenuController : IRunMenuController
     {
-        public RunMenuViewModel RunMenuViewModel { get; private set; }
-        public IWorldController WorldController { get; set; }
+        private readonly RunMenuViewModel _runMenuViewModel;
+        private readonly WorldViewModel _worldViewModel; 
 
-        public RunMenuController(RunMenuViewModel runMenuViewModel, IWorldController worldController)
+        public RunMenuController(RunMenuViewModel runMenuViewModel, WorldViewModel worldViewModel)
         {
-            RunMenuViewModel = runMenuViewModel;
-            WorldController = worldController;
+            _runMenuViewModel = runMenuViewModel;
+            _worldViewModel = worldViewModel;
         }
 
         public void Start()
         {
-            RunMenuViewModel.IsPauseButtonEnabled = true;
-            RunMenuViewModel.IsStopButtonEnabled = true;
-            RunMenuViewModel.IsStartButtonEnabled = false;
-            WorldController.WorldViewModel.WorldSquares = WorldViewModel.CreateWorldSquares(5, 5);
-            foreach (var square in WorldController.WorldViewModel.WorldSquares)
+            _runMenuViewModel.IsPauseButtonEnabled = true;
+            _runMenuViewModel.IsStopButtonEnabled = true;
+            _runMenuViewModel.IsStartButtonEnabled = false;
+            _worldViewModel.WorldSquares = WorldViewModel.CreateWorldSquares(5, 5);
+            foreach (var square in _worldViewModel.WorldSquares)
             {
                 square.Colour = Brushes.Red;
             }
@@ -36,18 +35,18 @@ namespace Microbots.Controllers
 
         public void Pause()
         {
-            RunMenuViewModel.IsPauseButtonEnabled = false;
-            RunMenuViewModel.IsStopButtonEnabled = true;
-            RunMenuViewModel.IsStartButtonEnabled = false;
+            _runMenuViewModel.IsPauseButtonEnabled = false;
+            _runMenuViewModel.IsStopButtonEnabled = true;
+            _runMenuViewModel.IsStartButtonEnabled = false;
         }
 
         public void Stop()
         {
-            RunMenuViewModel.IsPauseButtonEnabled = false;
-            RunMenuViewModel.IsStopButtonEnabled = false;
-            RunMenuViewModel.IsStartButtonEnabled = true;
-            WorldController.WorldViewModel.WorldSquares = WorldViewModel.CreateWorldSquares(3, 3);
-            foreach (var square in WorldController.WorldViewModel.WorldSquares)
+            _runMenuViewModel.IsPauseButtonEnabled = false;
+            _runMenuViewModel.IsStopButtonEnabled = false;
+            _runMenuViewModel.IsStartButtonEnabled = true;
+            _worldViewModel.WorldSquares = WorldViewModel.CreateWorldSquares(3, 3);
+            foreach (var square in _worldViewModel.WorldSquares)
             {
                 square.Colour = Brushes.Green;
             }

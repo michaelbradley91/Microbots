@@ -1,8 +1,8 @@
-﻿using Microbots.Helpers;
+﻿using Microbots.ViewModels.Helpers;
 
 namespace Microbots.ViewModels
 {
-    public class RunMenuViewModel : Bindable
+    public class RunMenuViewModel : ObservableModel
     {
         public RunMenuViewModel()
         {

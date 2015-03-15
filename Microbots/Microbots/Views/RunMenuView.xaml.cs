@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using Microbots.Controllers;
+using Microbots.ViewModels;
 
 namespace Microbots.Views
 {
@@ -7,11 +8,11 @@ namespace Microbots.Views
     {
         private IRunMenuController RunMenuController { get; set; }
 
-        public RunMenuView(IRunMenuController runMenuController)
+        public RunMenuView(IRunMenuController runMenuController, RunMenuViewModel runMenuViewModel)
         {
             RunMenuController = runMenuController;
             InitializeComponent();
-            DataContext = runMenuController.RunMenuViewModel;
+            DataContext = runMenuViewModel;
         }
 
         private void StartMenuButtonClick(object sender, RoutedEventArgs e)

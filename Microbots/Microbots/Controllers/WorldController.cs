@@ -2,19 +2,16 @@
 
 namespace Microbots.Controllers
 {
-    public interface IWorldController
-    {
-        WorldViewModel WorldViewModel { get; }
-    }
+    public interface IWorldController { }
 
     public class WorldController : IWorldController
     {
-        public WorldViewModel WorldViewModel { get; private set; }
+        private readonly WorldViewModel _worldViewModel;
 
         public WorldController(WorldViewModel worldViewModel)
         {
-            WorldViewModel = worldViewModel;
-            WorldViewModel.WorldSquares = WorldViewModel.CreateWorldSquares(3, 3);
+            _worldViewModel = worldViewModel;
+            _worldViewModel.WorldSquares = WorldViewModel.CreateWorldSquares(3, 3);
         }
     }
 }

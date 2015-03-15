@@ -75,24 +75,18 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Attributes\InitializationMethodAttribute.cs" />
-    <Compile Include="Attributes\AutoListenerAttribute.cs" />
-    <Compile Include="Attributes\StyleElementAttribute.cs" />
-    <Compile Include="Attributes\ControlElementAttribute.cs" />
     <Compile Include="Controllers\WorldController.cs" />
     <Compile Include="Controllers\WorldMenuController.cs" />
     <Compile Include="Controllers\RunMenuController.cs" />
     <Compile Include="Extensions\DependencyObjectExtensions.cs" />
     <Compile Include="Extensions\WpfExtensions.cs" />
-    <Compile Include="Helpers\Bindable.cs" />
-    <Compile Include="Helpers\ReflectionHelper.cs" />
+    <Compile Include="ViewModels\Helpers\ObservableModel.cs" />
     <Compile Include="Ninject\ServiceModule.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ViewModels\WorldSquareViewModel.cs" />
     <Compile Include="ViewModels\WorldViewModel.cs" />
     <Compile Include="ViewModels\WorldMenuViewModel.cs" />
     <Compile Include="ViewModels\RunMenuViewModel.cs" />
-    <Compile Include="Views\MicrobotsView.cs" />
     <Compile Include="Views\RunMenuView.xaml.cs">
       <DependentUpon>RunMenuView.xaml</DependentUpon>
     </Compile>
@@ -100,6 +94,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Views\ExceptionsView.xaml.cs">
+      <DependentUpon>ExceptionsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\WorldView.xaml.cs">
       <DependentUpon>WorldView.xaml</DependentUpon>
     </Compile>
@@ -117,6 +114,10 @@
     <Page Include="Views\RunMenuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ExceptionsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\WorldView.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -155,7 +156,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ExceptionHandlers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Microbots.Common\Microbots.Common.csproj">
+      <Project>{5735bc8b-2b38-4743-96e6-abd618f02b93}</Project>
+      <Name>Microbots.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

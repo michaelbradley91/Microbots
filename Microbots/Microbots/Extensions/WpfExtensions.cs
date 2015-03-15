@@ -1,13 +1,12 @@
-﻿using System.Runtime.InteropServices.ComTypes;
-using System.Windows;
+﻿using System.Windows;
 
-namespace Microbots.Helpers
+namespace Microbots.Extensions
 {
     internal static class WpfExtensions
     {
-        public static T FindByName<T>(this FrameworkElement frameworkElement, string name)
+        public static Style GetStyle(this FrameworkElement frameworkElement, string key)
         {
-            return (T)frameworkElement.FindName(name);
+            return (Style)frameworkElement.FindResource(key);
         }
     }
 }

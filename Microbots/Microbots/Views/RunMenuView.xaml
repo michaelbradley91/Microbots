@@ -6,9 +6,9 @@
              mc:Ignorable="d">
     <Label HorizontalAlignment="Stretch" Background="LightGray" HorizontalContentAlignment="Right">
         <StackPanel  Orientation="Horizontal">
-            <Button Name="StartMenuButton" IsEnabled="{Binding Path=IsStartButtonEnabled, Mode=TwoWay}" Height="45" FontSize="30" Padding="10,0" Margin="10,0" Click="StartMenuButtonClick">Start</Button>
-            <Button Name="PauseMenuButton" IsEnabled="{Binding Path=IsPauseButtonEnabled, Mode=TwoWay}" Height="45" FontSize="30" Padding="10,0" Margin="10,0" Click="PauseMenuButtonClick">Pause</Button>
-            <Button Name="StopMenuButton" IsEnabled="{Binding Path=IsStopButtonEnabled, Mode=TwoWay}" Height="45" FontSize="30" Padding="10,0" Margin="10,0" Click="StopMenuButtonClick">Stop</Button>
+            <Button Name="StartMenuButton" IsEnabled="{Binding Path=IsStartButtonEnabled, Mode=OneWay}" Height="45" FontSize="30" Padding="10,0" Margin="10,0" Click="StartMenuButtonClick">Start</Button>
+            <Button Name="PauseMenuButton" IsEnabled="{Binding Path=IsPauseButtonEnabled, Mode=OneWay}" Height="45" FontSize="30" Padding="10,0" Margin="10,0" Click="PauseMenuButtonClick">Pause</Button>
+            <Button Name="StopMenuButton" IsEnabled="{Binding Path=IsStopButtonEnabled, Mode=OneWay}" Height="45" FontSize="30" Padding="10,0" Margin="10,0" Click="StopMenuButtonClick">Stop</Button>
         </StackPanel>
     </Label>
 </UserControl>

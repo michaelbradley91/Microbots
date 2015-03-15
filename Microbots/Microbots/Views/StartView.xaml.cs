@@ -1,16 +1,18 @@
-﻿using System.Windows.Controls;
-using Microbots.Helpers;
-
-namespace Microbots.Views
+﻿namespace Microbots.Views
 {
     public partial class MainWindow
     {
-        public MainWindow(RunMenuView runMenuView, WorldMenuView worldMenuView, WorldView worldView)
+        public MainWindow(
+            RunMenuView runMenuView, 
+            WorldMenuView worldMenuView,
+            WorldView worldView,
+            ExceptionsView exceptionsView)
         {
             InitializeComponent();
-            this.FindByName<Border>("RunMenu").Child = runMenuView;
-            this.FindByName<Border>("WorldMenu").Child = worldMenuView;
-            this.FindByName<Border>("World").Child = worldView;
+            RunMenu.Child = runMenuView;
+            WorldMenu.Child = worldMenuView;
+            World.Child = worldView;
+            Exceptions.Child = exceptionsView;
         }
     }
 }

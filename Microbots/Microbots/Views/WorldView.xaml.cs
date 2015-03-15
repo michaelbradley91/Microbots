@@ -1,60 +1,57 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using Microbots.Attributes;
+using Microbots.Common.Extensions;
+using Microbots.Common.Helpers;
 using Microbots.Controllers;
-
-// ReSharper disable UnusedMember.Local
-#pragma warning disable 649
+using Microbots.Extensions;
+using Microbots.ViewModels;
+using Microbots.ViewModels.Helpers;
 
 namespace Microbots.Views
 {
     public partial class WorldView
     {
-        private IWorldController WorldController { get; set; }
+        private Grid WorldGrid { get { return WorldGridElement; } }
+        private Style WorldSquareStyle { get { return _cacheHelper.Get("WorldSquareStyle", () => this.GetStyle("WorldSquareStyle")); } }
 
-        [ControlElement("WorldGridElement")] private Grid _worldGrid;
-        [StyleElement("WorldSquareStyle")] private Style _worldSquareStyle;
+        private readonly IWorldController _worldController;
+        private readonly WorldViewModel _worldViewModel;
+        private readonly ICacheHelper _cacheHelper;
 
-        public WorldView(IWorldController worldController)
+        public WorldView(IWorldController worldController, WorldViewModel worldViewModel, ICacheHelper cacheHelper)
         {
-            WorldController = worldController;
-            InitializePostConstructor();
+            _worldController = worldController;
+            _worldViewModel = worldViewModel;
+            _cacheHelper = cacheHelper;
+
+            InitializeComponent();
+            DataContext = _worldViewModel;
+
+            _worldViewModel.AddChangeHandler(WorldSquaresChanged, wm => wm.WorldSquares, true);
         }
 
-        [AutoListener] private PropertyChangedListener<WorldView> _worldSquaresListener =
-            new PropertyChangedListener<WorldView>(w => new PropertyListenerInfo(
-                w.WorldSquaresChanged,
-                w.WorldController.WorldViewModel,
-                () => w.WorldController.WorldViewModel.WorldSquares));
-        
-        [InitializationMethod]
+        private const int RowDimension = 0;
+        private const int ColumnDimension = 1;
+
         private void WorldSquaresChanged()
         {
-            var squares = WorldController.WorldViewModel.WorldSquares;
-            _worldGrid.ColumnDefinitions.Clear();
-            _worldGrid.RowDefinitions.Clear();
-            _worldGrid.Children.Clear();
-            for (var row = 0; row < squares.GetLength(0); row++)
-            {
-                _worldGrid.RowDefinitions.Add(new RowDefinition());
-            }
-            for (var column = 0; column < squares.GetLength(1); column++)
-            {
-                _worldGrid.ColumnDefinitions.Add(new ColumnDefinition());
-            }
-            for (var column = 0; column < _worldGrid.ColumnDefinitions.Count; column++)
-            {
-                for (var row = 0; row < _worldGrid.RowDefinitions.Count; row++)
-                {
-                    var label = new Label { Content = row + ":" + column };
-                    label.SetValue(Grid.ColumnProperty, column);
-                    label.SetValue(Grid.RowProperty, row);
-                    label.DataContext = squares[row, column];
-                    label.Style = _worldSquareStyle;
-                    _worldGrid.Children.Add(label);
-                }
-            }
+            WorldGrid.ColumnDefinitions.Clear();
+            WorldGrid.RowDefinitions.Clear();
+            WorldGrid.Children.Clear();
+
+            _worldViewModel.WorldSquares.Foreach(RowDimension, _ => WorldGrid.RowDefinitions.Add(new RowDefinition()));
+            _worldViewModel.WorldSquares.Foreach(ColumnDimension, _ => WorldGrid.ColumnDefinitions.Add(new ColumnDefinition()));
+            _worldViewModel.WorldSquares.Foreach(index => WorldGrid.Children.Add(CreateLabelFor(index[RowDimension], index[ColumnDimension])));
+        }
+
+        private Label CreateLabelFor(int row, int column)
+        {
+            var label = new Label();
+            label.SetValue(Grid.ColumnProperty, column);
+            label.SetValue(Grid.RowProperty, row);
+            label.DataContext = _worldViewModel.WorldSquares[row, column];
+            label.Style = WorldSquareStyle;
+            return label;
         }
     }
-
 }

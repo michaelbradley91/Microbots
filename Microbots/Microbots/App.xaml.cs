@@ -21,6 +21,7 @@ namespace Microbots
         {
             _kernel = new StandardKernel();
             _kernel.Load(new ServiceModule());
+            _kernel.Load(new Common.Ninject.ServiceModule());
         }
 
         private void ComposeObjects()

@@ -3,7 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microbots", "Microbots\Microbots.csproj", "{6CFC1FD3-2BF6-4502-BFBB-53E6749A81C3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microbots.View", "Microbots\Microbots.View.csproj", "{6CFC1FD3-2BF6-4502-BFBB-53E6749A81C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microbots.View.Tests", "Microbots.View.Tests\Microbots.View.Tests.csproj", "{C919A207-3892-4D9C-ADF7-813271E79DE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microbots.Database.Tests", "Microbots.Database.Tests\Microbots.Database.Tests.csproj", "{C47E0C06-06F2-4134-ABCA-89CAA18233F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microbots.Filestore.Tests", "Microbots.Filestore.Tests\Microbots.Filestore.Tests.csproj", "{CB10A107-87D2-4933-9C27-5F46A4FC5ADA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microbots.Services.Tests", "Microbots.Services.Tests\Microbots.Services.Tests.csproj", "{927CE3CD-72B0-4C69-9C1E-34C849006633}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microbots.Models.Tests", "Microbots.Models.Tests\Microbots.Models.Tests.csproj", "{9F9D9D6F-8C20-4E5D-8BEB-368370BF22EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microbots.Database", "Mircobots.Database\Microbots.Database.csproj", "{381F441D-3BAD-4C6E-8F01-BFC5D4BEE3BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microbots.Filestore", "Microbots.Filestore\Microbots.Filestore.csproj", "{48425F47-F74A-4C8E-B6E2-F9E301730354}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microbots.Models", "Microbots.Models\Microbots.Models.csproj", "{2DB0D9B1-CD4F-4311-8EAF-1997E5B145DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microbots.Services", "Microbots.Services\Microbots.Services.csproj", "{0812CC3D-D562-4F6C-9552-14D2937E77B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microbots.Database.Migrations", "Microbots.Database.Migrations\Microbots.Database.Migrations.csproj", "{2BBF7B05-C62F-4A34-A5D8-55E69C771B0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microbots.Common", "Microbots.Common\Microbots.Common.csproj", "{5735BC8B-2B38-4743-96E6-ABD618F02B93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microbots.Common.Tests", "Microbots.Common.Tests\Microbots.Common.Tests.csproj", "{ACC89F3D-DECB-4016-BEFF-B5EF0EA187E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +39,54 @@ Global
 		{6CFC1FD3-2BF6-4502-BFBB-53E6749A81C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CFC1FD3-2BF6-4502-BFBB-53E6749A81C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CFC1FD3-2BF6-4502-BFBB-53E6749A81C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C919A207-3892-4D9C-ADF7-813271E79DE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C919A207-3892-4D9C-ADF7-813271E79DE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C919A207-3892-4D9C-ADF7-813271E79DE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C919A207-3892-4D9C-ADF7-813271E79DE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C47E0C06-06F2-4134-ABCA-89CAA18233F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C47E0C06-06F2-4134-ABCA-89CAA18233F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C47E0C06-06F2-4134-ABCA-89CAA18233F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C47E0C06-06F2-4134-ABCA-89CAA18233F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB10A107-87D2-4933-9C27-5F46A4FC5ADA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB10A107-87D2-4933-9C27-5F46A4FC5ADA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB10A107-87D2-4933-9C27-5F46A4FC5ADA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB10A107-87D2-4933-9C27-5F46A4FC5ADA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{927CE3CD-72B0-4C69-9C1E-34C849006633}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{927CE3CD-72B0-4C69-9C1E-34C849006633}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{927CE3CD-72B0-4C69-9C1E-34C849006633}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{927CE3CD-72B0-4C69-9C1E-34C849006633}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F9D9D6F-8C20-4E5D-8BEB-368370BF22EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F9D9D6F-8C20-4E5D-8BEB-368370BF22EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F9D9D6F-8C20-4E5D-8BEB-368370BF22EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F9D9D6F-8C20-4E5D-8BEB-368370BF22EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{381F441D-3BAD-4C6E-8F01-BFC5D4BEE3BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{381F441D-3BAD-4C6E-8F01-BFC5D4BEE3BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{381F441D-3BAD-4C6E-8F01-BFC5D4BEE3BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{381F441D-3BAD-4C6E-8F01-BFC5D4BEE3BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48425F47-F74A-4C8E-B6E2-F9E301730354}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48425F47-F74A-4C8E-B6E2-F9E301730354}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48425F47-F74A-4C8E-B6E2-F9E301730354}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48425F47-F74A-4C8E-B6E2-F9E301730354}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DB0D9B1-CD4F-4311-8EAF-1997E5B145DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DB0D9B1-CD4F-4311-8EAF-1997E5B145DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DB0D9B1-CD4F-4311-8EAF-1997E5B145DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DB0D9B1-CD4F-4311-8EAF-1997E5B145DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0812CC3D-D562-4F6C-9552-14D2937E77B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0812CC3D-D562-4F6C-9552-14D2937E77B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0812CC3D-D562-4F6C-9552-14D2937E77B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0812CC3D-D562-4F6C-9552-14D2937E77B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BBF7B05-C62F-4A34-A5D8-55E69C771B0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BBF7B05-C62F-4A34-A5D8-55E69C771B0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BBF7B05-C62F-4A34-A5D8-55E69C771B0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BBF7B05-C62F-4A34-A5D8-55E69C771B0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5735BC8B-2B38-4743-96E6-ABD618F02B93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5735BC8B-2B38-4743-96E6-ABD618F02B93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5735BC8B-2B38-4743-96E6-ABD618F02B93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5735BC8B-2B38-4743-96E6-ABD618F02B93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACC89F3D-DECB-4016-BEFF-B5EF0EA187E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACC89F3D-DECB-4016-BEFF-B5EF0EA187E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACC89F3D-DECB-4016-BEFF-B5EF0EA187E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACC89F3D-DECB-4016-BEFF-B5EF0EA187E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

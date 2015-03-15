@@ -5,7 +5,7 @@ using Ninject.Modules;
 
 namespace Microbots.Ninject
 {
-    class ServiceModule : NinjectModule
+    public class ServiceModule : NinjectModule
     {
         public override void Load()
         {
@@ -16,9 +16,9 @@ namespace Microbots.Ninject
 
         public void LoadControllers()
         {
-            Bind<IRunMenuController>().To<RunMenuController>().InSingletonScope();
-            Bind<IWorldMenuController>().To<WorldMenuController>().InSingletonScope();
-            Bind<IWorldController>().To<WorldController>().InSingletonScope();
+            Bind<IRunMenuController>().To<RunMenuController>().InTransientScope();
+            Bind<IWorldMenuController>().To<WorldMenuController>().InTransientScope();
+            Bind<IWorldController>().To<WorldController>().InTransientScope();
         }
 
         public void LoadViewModels()
@@ -30,9 +30,10 @@ namespace Microbots.Ninject
 
         public void LoadViews()
         {
-            Bind<RunMenuView>().ToSelf().InSingletonScope();
-            Bind<WorldMenuView>().ToSelf().InSingletonScope();
-            Bind<WorldView>().ToSelf().InSingletonScope();
+            Bind<RunMenuView>().ToSelf().InTransientScope();
+            Bind<WorldMenuView>().ToSelf().InTransientScope();
+            Bind<WorldView>().ToSelf().InTransientScope();
+            Bind<ExceptionsView>().ToSelf().InTransientScope();
         }
     }
 }

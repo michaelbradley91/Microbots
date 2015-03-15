@@ -1,9 +1,9 @@
 using System.Windows.Media;
-using Microbots.Helpers;
+using Microbots.ViewModels.Helpers;
 
 namespace Microbots.ViewModels
 {
-    public class WorldSquareViewModel : Bindable
+    public class WorldSquareViewModel : ObservableModel
     {
         public WorldSquareViewModel()
         {
