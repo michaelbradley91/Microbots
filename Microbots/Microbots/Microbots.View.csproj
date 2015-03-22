@@ -96,10 +96,9 @@
     <Compile Include="Views\MessagesView.xaml.cs">
       <DependentUpon>MessagesView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Resources\Helpers\AlwaysEnabledCommand.cs" />
+    <Compile Include="Views\Resources\Helpers\Command.cs" />
     <Compile Include="Views\Resources\Helpers\ObservableUserControl.cs" />
-    <Compile Include="Views\Resources\Messages\MessagesResourceContainer.cs" />
-    <Compile Include="Views\Resources\Messages\MessagesUserControl.xaml.cs">
+    <Compile Include="Views\Resources\MessagesUserControl.xaml.cs">
       <DependentUpon>MessagesUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RunMenuView.xaml.cs">
@@ -123,11 +122,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Resources\Messages\MessagesResourceDictionary.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Resources\Messages\MessagesUserControl.xaml">
+    <Page Include="Views\Resources\MessagesUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -5,19 +5,19 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
+using System.Windows;
 using System.Windows.Controls;
 using Microbots.Annotations;
 using Microbots.Common.Helpers;
-using Microbots.Helpers;
 
 namespace Microbots.Views.Resources.Helpers
 {
-    public class ObservableUserControl : Border, INotifyPropertyChanged
+    public abstract class ObservableUserControl<TE> : UserControl, INotifyPropertyChanged where TE : class
     {
         private readonly Dictionary<string, ICollection<Action>> _actionsByProperty;
         private readonly Dictionary<string, object> _properties;
 
-        public ObservableUserControl()
+        protected ObservableUserControl()
         {
             _properties = new Dictionary<string, object>();
             _actionsByProperty = new Dictionary<string, ICollection<Action>>();
@@ -70,18 +70,32 @@ namespace Microbots.Views.Resources.Helpers
             _properties[name] = value;
             OnPropertyChanged(name);
         }
+
+        public static readonly DependencyProperty EventHandlerProperty = DependencyProperty.Register
+            (
+                 "EventHandler",
+                 typeof(TE),
+                 typeof(ObservableUserControl<TE>),
+                 new PropertyMetadata(null)
+            );
+
+        public TE EventHandler
+        {
+            get { return (TE)GetValue(EventHandlerProperty); }
+            set { SetValue(EventHandlerProperty, value); }
+        }
     }
 
     public static class ObservableModelExtensions
     {
-        public static void AddChangeHandler<T>(this T observableModel, Action action, Expression<Func<T, object>> property, bool invokeNow = false)
-            where T : ObservableModel
+        public static void AddChangeHandler<T, TE>(this T observableModel, Action action, Expression<Func<T, object>> property, bool invokeNow = false)
+            where T : ObservableUserControl<TE> where TE : class
         {
             observableModel.AddChangeHandler(action, ReflectionHelper.GetPropertyName(property), invokeNow);
         }
 
-        public static void RemoveChangeHandler<T>(this T observableModel, Action action, Expression<Func<T, object>> property)
-            where T : ObservableModel
+        public static void RemoveChangeHandler<T, TE>(this T observableModel, Action action, Expression<Func<T, object>> property)
+            where T : ObservableUserControl<TE> where TE : class
         {
             observableModel.RemoveChangeHandler(action, ReflectionHelper.GetPropertyName(property));
         }

@@ -3,11 +3,11 @@ using System.Windows.Input;
 
 namespace Microbots.Views.Resources.Helpers
 {
-    public class AlwaysEnabledCommand : ICommand
+    public class Command : ICommand
     {
         private readonly Action _command; 
 
-        public AlwaysEnabledCommand(Action command)
+        public Command(Action command)
         {
             _command = command;
         }
@@ -25,14 +25,14 @@ namespace Microbots.Views.Resources.Helpers
         public event EventHandler CanExecuteChanged { add { } remove { } }
     }
 
-    public class AlwaysEnabledCommand<T> : ICommand
+    public class Command<T> : ICommand
     {
         private readonly Func<object, T> _converter;
         private readonly Action<T> _command; 
 
-        public AlwaysEnabledCommand(Action<T> command) : this(command, parameter => (T)parameter) { }
+        public Command(Action<T> command) : this(command, parameter => (T)parameter) { }
 
-        public AlwaysEnabledCommand(Action<T> command, Func<object, T> converter)
+        public Command(Action<T> command, Func<object, T> converter)
         {
             _command = command;
             _converter = converter;

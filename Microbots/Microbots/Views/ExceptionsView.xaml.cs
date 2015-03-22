@@ -2,10 +2,11 @@
 using Microbots.Controllers;
 using Microbots.Extensions;
 using Microbots.ViewModels;
+using Microbots.Views.Resources.Messages;
 
 namespace Microbots.Views
 {
-    public partial class ExceptionsView
+    public partial class ExceptionsView : IMessageResourceEventHandler
     {
         private readonly IExceptionsController _exceptionsController;
         private readonly ExceptionsViewModel _exceptionsViewModel;
@@ -19,15 +20,15 @@ namespace Microbots.Views
             DataContext = exceptionsViewModel;
         }
 
-        private void ClearExceptions(object sender, RoutedEventArgs e)
+        public void ClearMessage(MessageViewModel exception)
         {
-            _exceptionsController.ClearExceptions();
+            //TODO: FIX THIS
+//            _exceptionsViewModel.Exceptions.Remove(exception);
         }
 
-        private void ClearException(object sender, RoutedEventArgs e)
+        public void ClearAllMessages()
         {
-            var exception = sender.GetDataContext<ExceptionViewModel>();
-            _exceptionsViewModel.Exceptions.Remove(exception);
+            _exceptionsController.ClearExceptions();
         }
     }
 }

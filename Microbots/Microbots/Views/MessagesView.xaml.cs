@@ -2,10 +2,11 @@
 using Microbots.Controllers;
 using Microbots.Extensions;
 using Microbots.ViewModels;
+using Microbots.Views.Resources.Messages;
 
 namespace Microbots.Views
 {
-    public partial class MessagesView
+    public partial class MessagesView : IMessageResourceEventHandler
     {
         private readonly IMessagesController _messagesController;
         private readonly MessagesViewModel _messagesViewModel;
@@ -19,15 +20,14 @@ namespace Microbots.Views
             DataContext = messagesViewModel;
         }
 
-        private void ClearMessages(object sender, RoutedEventArgs e)
+        public void ClearMessage(MessageViewModel message)
         {
-            _messagesController.ClearMessages();
+            _messagesViewModel.Messages.Remove(message);
         }
 
-        private void ClearMessage(object sender, RoutedEventArgs e)
+        public void ClearAllMessages()
         {
-            var message = sender.GetDataContext<MessageViewModel>();
-            _messagesViewModel.Messages.Remove(message);
+            _messagesController.ClearMessages();
         }
     }
 }

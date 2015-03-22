@@ -4,13 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:messages="clr-namespace:Microbots.Views.Resources.Messages"
-             mc:Ignorable="d">
-    <messages:MessageResourceContainer 
+             mc:Ignorable="d"
+             x:Name="This">
+    <messages:MessagesResourceContainer 
+        EventHandler="{Binding ElementName=This}"
         MessageMouseOverCloseColour="Red" 
-        MessageTextColour="Black" 
+        MessageTextColour="Red" 
         MessageBackgroundColour="Pink" 
-        Title="Exceptions" 
-        EventHandler="{Binding}">
-        <messages:MessageUserControl></messages:MessageUserControl>
-    </messages:MessageResourceContainer>
+        Title="Exceptions">
+        <messages:MessageUserControl />
+    </messages:MessagesResourceContainer>
 </UserControl>

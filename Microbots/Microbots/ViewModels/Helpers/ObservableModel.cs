@@ -10,12 +10,12 @@ using Microbots.Common.Helpers;
 
 namespace Microbots.Helpers
 {
-    public class ObservableModel : INotifyPropertyChanged
+    public abstract class ObservableModel : INotifyPropertyChanged
     {
         private readonly Dictionary<string, ICollection<Action>> _actionsByProperty;
         private readonly Dictionary<string, object> _properties;
 
-        public ObservableModel()
+        protected ObservableModel()
         {
             _properties = new Dictionary<string, object>();
             _actionsByProperty = new Dictionary<string, ICollection<Action>>();
