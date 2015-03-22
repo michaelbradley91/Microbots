@@ -111,7 +111,7 @@
     <Compile Include="Views\ExceptionsView.xaml.cs">
       <DependentUpon>ExceptionsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CustomFrameworkElements\WindowScrollViewer.cs" />
+    <Compile Include="Views\Resources\Controls\WindowScrollViewer.cs" />
     <Compile Include="Views\WorldView.xaml.cs">
       <DependentUpon>WorldView.xaml</DependentUpon>
     </Compile>

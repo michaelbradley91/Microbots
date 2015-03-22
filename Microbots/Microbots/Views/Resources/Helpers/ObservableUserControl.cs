@@ -12,12 +12,12 @@ using Microbots.Common.Helpers;
 
 namespace Microbots.Views.Resources.Helpers
 {
-    public abstract class ObservableUserControl<TE> : UserControl, INotifyPropertyChanged where TE : class
+    public class ObservableUserControl<TE> : UserControl, INotifyPropertyChanged where TE : class
     {
         private readonly Dictionary<string, ICollection<Action>> _actionsByProperty;
         private readonly Dictionary<string, object> _properties;
 
-        protected ObservableUserControl()
+        public ObservableUserControl()
         {
             _properties = new Dictionary<string, object>();
             _actionsByProperty = new Dictionary<string, ICollection<Action>>();
@@ -71,13 +71,7 @@ namespace Microbots.Views.Resources.Helpers
             OnPropertyChanged(name);
         }
 
-        public static readonly DependencyProperty EventHandlerProperty = DependencyProperty.Register
-            (
-                 "EventHandler",
-                 typeof(TE),
-                 typeof(ObservableUserControl<TE>),
-                 new PropertyMetadata(null)
-            );
+        public static readonly DependencyProperty EventHandlerProperty = DependencyProperty.Register("EventHandler", typeof(TE), typeof(ObservableUserControl<TE>), new PropertyMetadata(null));
 
         public TE EventHandler
         {

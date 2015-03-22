@@ -11,10 +11,7 @@ namespace Microbots.Views.Resources.Controls
         {
             InitializeComponent();
         }
-    }
 
-    public class MessagesControlParameters : ObservableUserControl<IMessagesEventHandler>
-    {
         public string Title { get { return Get<string>(); } set { Set(value); } }
         public Brush MessageTextColour { get { return Get<Brush>(); } set { Set(value); } }
         public Brush MessageMouseOverCloseColour { get { return Get<Brush>(); } set { Set(value); } }
