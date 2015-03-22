@@ -5,17 +5,19 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
+using System.Windows.Controls;
 using Microbots.Annotations;
 using Microbots.Common.Helpers;
+using Microbots.Helpers;
 
-namespace Microbots.Helpers
+namespace Microbots.Views.Resources.Helpers
 {
-    public class ObservableModel : INotifyPropertyChanged
+    public class ObservableUserControl : Border, INotifyPropertyChanged
     {
         private readonly Dictionary<string, ICollection<Action>> _actionsByProperty;
         private readonly Dictionary<string, object> _properties;
 
-        public ObservableModel()
+        public ObservableUserControl()
         {
             _properties = new Dictionary<string, object>();
             _actionsByProperty = new Dictionary<string, ICollection<Action>>();

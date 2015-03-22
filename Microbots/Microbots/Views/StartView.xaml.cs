@@ -9,6 +9,7 @@ namespace Microbots.Views
             WorldMenuView worldMenuView,
             WorldView worldView,
             ExceptionsView exceptionsView,
+            MessagesView messagesView,
             StartViewModel startViewModel)
         {
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
@@ -18,6 +19,7 @@ namespace Microbots.Views
             WorldMenu.Child = worldMenuView;
             World.Child = worldView;
             Exceptions.Child = exceptionsView;
+            Messages.Child = messagesView;
 
             DataContext = startViewModel;
         }

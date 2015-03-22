@@ -7,6 +7,8 @@ namespace Microbots.Controllers
     {
         void HideExceptions();
         void ShowExceptions();
+        void HideMessages();
+        void ShowMessages();
     }
 
     public class StartController : IStartController
@@ -26,6 +28,16 @@ namespace Microbots.Controllers
         public void ShowExceptions()
         {
             _startViewModel.ExceptionVisiblity = Visibility.Visible;
+        }
+
+        public void HideMessages()
+        {
+            _startViewModel.MessageVisibility = Visibility.Collapsed;
+        }
+
+        public void ShowMessages()
+        {
+            _startViewModel.MessageVisibility = Visibility.Visible;
         }
     }
 }

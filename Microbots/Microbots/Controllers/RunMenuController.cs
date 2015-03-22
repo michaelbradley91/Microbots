@@ -17,13 +17,15 @@ namespace Microbots.Controllers
         private readonly WorldViewModel _worldViewModel;
         private readonly StartViewModel _startViewModel;
         private readonly ExceptionsViewModel _exceptionsViewModel;
+        private readonly MessagesViewModel _messagesViewModel;
 
-        public RunMenuController(RunMenuViewModel runMenuViewModel, WorldViewModel worldViewModel, StartViewModel startViewModel, ExceptionsViewModel exceptionsViewModel)
+        public RunMenuController(RunMenuViewModel runMenuViewModel, WorldViewModel worldViewModel, StartViewModel startViewModel, ExceptionsViewModel exceptionsViewModel, MessagesViewModel messagesViewModel)
         {
             _runMenuViewModel = runMenuViewModel;
             _worldViewModel = worldViewModel;
             _startViewModel = startViewModel;
             _exceptionsViewModel = exceptionsViewModel;
+            _messagesViewModel = messagesViewModel;
         }
 
         public void Start()
@@ -52,6 +54,8 @@ namespace Microbots.Controllers
             _runMenuViewModel.IsPauseButtonEnabled = false;
             _runMenuViewModel.IsStopButtonEnabled = false;
             _runMenuViewModel.IsStartButtonEnabled = true;
+            _startViewModel.MessageVisibility = Visibility.Visible;
+            _messagesViewModel.Messages.Add(new MessageViewModel { Summary = "New message!!! WOWOW  WOWOWW WOWOWOW WWOOOW WWOOWOW WOWWOWOWOWOWOWOWW" });
             _worldViewModel.WorldSquares = WorldViewModel.CreateWorldSquares(3, 3);
             foreach (var square in _worldViewModel.WorldSquares)
             {

@@ -21,6 +21,7 @@ namespace Microbots.Ninject
             Bind<IWorldMenuController>().To<WorldMenuController>().InTransientScope();
             Bind<IWorldController>().To<WorldController>().InTransientScope();
             Bind<IExceptionsController>().To<ExceptionsController>().InTransientScope();
+            Bind<IMessagesController>().To<MessagesController>().InTransientScope();
         }
 
         public void LoadViewModels()
@@ -30,6 +31,7 @@ namespace Microbots.Ninject
             Bind<WorldMenuViewModel>().ToSelf().InSingletonScope();
             Bind<WorldViewModel>().ToSelf().InSingletonScope();
             Bind<ExceptionsViewModel>().ToSelf().InSingletonScope();
+            Bind<MessagesViewModel>().ToSelf().InSingletonScope();
         }
 
         public void LoadViews()
@@ -39,6 +41,7 @@ namespace Microbots.Ninject
             Bind<WorldMenuView>().ToSelf().InTransientScope();
             Bind<WorldView>().ToSelf().InTransientScope();
             Bind<ExceptionsView>().ToSelf().InTransientScope();
+            Bind<MessagesView>().ToSelf().InTransientScope();
         }
     }
 }

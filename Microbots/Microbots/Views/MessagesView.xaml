@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Microbots.Views.ExceptionsView"
+﻿<UserControl x:Class="Microbots.Views.MessagesView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,10 +6,10 @@
              xmlns:messages="clr-namespace:Microbots.Views.Resources.Messages"
              mc:Ignorable="d">
     <messages:MessageResourceContainer 
-        MessageMouseOverCloseColour="Red" 
+        MessageMouseOverCloseColour="DarkGoldenrod" 
         MessageTextColour="Black" 
-        MessageBackgroundColour="Pink" 
-        Title="Exceptions" 
+        MessageBackgroundColour="LightGoldenrodYellow" 
+        Title="Messages" 
         EventHandler="{Binding}">
         <messages:MessageUserControl></messages:MessageUserControl>
     </messages:MessageResourceContainer>

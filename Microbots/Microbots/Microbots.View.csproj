@@ -75,6 +75,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Controllers\ExceptionsController.cs" />
     <Compile Include="Controllers\StartController.cs" />
     <Compile Include="Controllers\WorldController.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Controllers\RunMenuController.cs" />
     <Compile Include="Extensions\DependencyObjectExtensions.cs" />
     <Compile Include="Extensions\WpfExtensions.cs" />
+    <Compile Include="ViewModels\MessagesViewModel.cs" />
     <Compile Include="ViewModels\Helpers\ObservableModel.cs" />
     <Compile Include="Ninject\ServiceModule.cs" />
     <Compile Include="Properties\Annotations.cs" />
@@ -91,6 +93,15 @@
     <Compile Include="ViewModels\WorldViewModel.cs" />
     <Compile Include="ViewModels\WorldMenuViewModel.cs" />
     <Compile Include="ViewModels\RunMenuViewModel.cs" />
+    <Compile Include="Views\MessagesView.xaml.cs">
+      <DependentUpon>MessagesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Resources\Helpers\AlwaysEnabledCommand.cs" />
+    <Compile Include="Views\Resources\Helpers\ObservableUserControl.cs" />
+    <Compile Include="Views\Resources\Messages\MessagesResourceContainer.cs" />
+    <Compile Include="Views\Resources\Messages\MessagesUserControl.xaml.cs">
+      <DependentUpon>MessagesUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\RunMenuView.xaml.cs">
       <DependentUpon>RunMenuView.xaml</DependentUpon>
     </Compile>
@@ -101,12 +112,25 @@
     <Compile Include="Views\ExceptionsView.xaml.cs">
       <DependentUpon>ExceptionsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CustomFrameworkElements\WindowScrollViewer.cs" />
     <Compile Include="Views\WorldView.xaml.cs">
       <DependentUpon>WorldView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WorldMenuView.xaml.cs">
       <DependentUpon>WorldMenuView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\MessagesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Resources\Messages\MessagesResourceDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Resources\Messages\MessagesUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\StartView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

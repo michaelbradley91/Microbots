@@ -4,8 +4,8 @@ using Microbots.Common.Extensions;
 using Microbots.Common.Helpers;
 using Microbots.Controllers;
 using Microbots.Extensions;
+using Microbots.Helpers;
 using Microbots.ViewModels;
-using Microbots.ViewModels.Helpers;
 
 namespace Microbots.Views
 {
@@ -41,11 +41,12 @@ namespace Microbots.Views
 
             _worldViewModel.WorldSquares.Foreach(RowDimension, _ => WorldGrid.RowDefinitions.Add(new RowDefinition()));
             _worldViewModel.WorldSquares.Foreach(ColumnDimension, _ => WorldGrid.ColumnDefinitions.Add(new ColumnDefinition()));
-            _worldViewModel.WorldSquares.Foreach(index => WorldGrid.Children.Add(CreateLabelFor(index[RowDimension], index[ColumnDimension])));
+            _worldViewModel.WorldSquares.Foreach(index => WorldGrid.Children.Add(CreateControlFor(index[RowDimension], index[ColumnDimension])));
         }
 
-        private Label CreateLabelFor(int row, int column)
+        private FrameworkElement CreateControlFor(int row, int column)
         {
+            
             var label = new Label();
             label.SetValue(Grid.ColumnProperty, column);
             label.SetValue(Grid.RowProperty, row);

@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using Microbots.ViewModels.Helpers;
+using Microbots.Helpers;
 
 namespace Microbots.ViewModels
 {
@@ -8,8 +8,10 @@ namespace Microbots.ViewModels
         public StartViewModel()
         {
             ExceptionVisiblity = Visibility.Visible;
+            MessageVisibility = Visibility.Visible;
         }
 
         public Visibility ExceptionVisiblity { get { return Get<Visibility>(); } set { Set(value); } }
+        public Visibility MessageVisibility { get { return Get<Visibility>(); } set { Set(value); } }
     }
 }

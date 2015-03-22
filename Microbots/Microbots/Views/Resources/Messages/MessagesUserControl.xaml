@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="Microbots.Views.Resources.Messages.MessageUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModels="clr-namespace:Microbots.ViewModels"
+             xmlns:customFrameworkElements="clr-namespace:Microbots.Views.CustomFrameworkElements"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:messages="clr-namespace:Microbots.Views.Resources.Messages"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="MessagesResourceDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <StackPanel Background="{Binding Path=MessageBackgroundColour, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type messages:MessageResourceContainer}}, Mode=OneWay}" HorizontalAlignment="Stretch" MinWidth="400">
+        <Grid>
+            <Label Grid.Row="0" Grid.Column="0" HorizontalContentAlignment="Center" HorizontalAlignment="Stretch" FontSize="32" Content="{Binding Path=MessageBackgroundColour, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type messages:MessageResourceContainer}}, Mode=OneWay}" />
+            <Button Template="{StaticResource ResourceKey=CloseAllMessagesButtonTemplate}" Grid.Row="0" Grid.Column="0" HorizontalContentAlignment="Right" HorizontalAlignment="Right" >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <i:InvokeCommandAction 
+                            Command="{Binding ClearAllMessagesCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type messages:MessageResourceContainer}}}"
+                            />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+        </Grid>
+        <ItemsControl ItemsSource="{Binding Path=Messages, Mode=OneWay}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate DataType="viewModels:MessageViewModel">
+                    <Border BorderThickness="0,2,0,0" BorderBrush="DarkGray">
+                        <DockPanel MaxWidth="{Binding RelativeSource={RelativeSource AncestorType={x:Type customFrameworkElements:WindowScrollViewer}}, Path=ActualWidth}">
+                            <Button DockPanel.Dock="Right" Template="{StaticResource ResourceKey=CloseMessageButtonTemplate}" HorizontalContentAlignment="Right" HorizontalAlignment="Right">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Click">
+                                        <i:InvokeCommandAction 
+                                            Command="{Binding ClearMessageCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type messages:MessageResourceContainer}}}"
+                                            CommandParameter="{Binding}"
+                                            />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </Button>
+                            <TextBlock TextWrapping="Wrap" Background="Transparent" FontSize="24" Foreground="{Binding Path=MessageTextColour, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type messages:MessageResourceContainer}}, Mode=OneWay}" HorizontalAlignment="Stretch" Margin="15,0,0,0" Text="{Binding Path=Summary, Mode=OneWay}" />
+                        </DockPanel>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </StackPanel>
+</UserControl>

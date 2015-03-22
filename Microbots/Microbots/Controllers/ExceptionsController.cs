@@ -5,6 +5,7 @@ namespace Microbots.Controllers
     public interface IExceptionsController
     {
         void ClearExceptions();
+        void AddException(ExceptionViewModel exceptionViewModel);
     }
 
     public class ExceptionsController : IExceptionsController

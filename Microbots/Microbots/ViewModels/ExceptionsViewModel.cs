@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Forms;
-using Microbots.ViewModels.Helpers;
+using Microbots.Helpers;
 
 namespace Microbots.ViewModels
 {

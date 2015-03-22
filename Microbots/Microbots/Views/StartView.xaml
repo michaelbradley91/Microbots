@@ -1,23 +1,27 @@
 ﻿<Window x:Class="Microbots.Views.StartView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Microbots" MinHeight="640" Height="860" MinWidth="750" Width="1000">
-    <DockPanel LastChildFill="True">
-        <Label DockPanel.Dock="Top" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" FontSize="32" 
-               Background="LightGray" BorderBrush="DarkGray" BorderThickness="3,3,3,0">
-            Test Your Microbots
-        </Label>
-        <Border Name="WorldMenu" DockPanel.Dock="Left" BorderThickness="3,3,0,3" BorderBrush="DarkGray" Width="200" />
-        <Border Name="RunMenu" DockPanel.Dock="Bottom" BorderThickness="3,0,3,3" BorderBrush="DarkGray" Height="60" />
-        <Border BorderThickness="3" BorderBrush="DarkGray" >
-            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                <Border Grid.Row="0" Grid.Column="0" Grid.ZIndex="2" Margin="0,-1,0,0" Visibility="{Binding Path=ExceptionVisiblity, Mode=OneWay}">
-                    <StackPanel>
-                        <Border BorderThickness="0,0,0,3" BorderBrush="DarkGray" Name="Exceptions"></Border>
-                    </StackPanel>
-                </Border>
-                <Border Grid.Row="0" Grid.Column="0" Grid.ZIndex="1" Name="World" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
-            </Grid>
-        </Border>
-    </DockPanel>
+        xmlns:views="clr-namespace:Microbots.Views"
+        xmlns:customFrameworkElements="clr-namespace:Microbots.Views.CustomFrameworkElements"
+        Title="Microbots">
+    <customFrameworkElements:WindowScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <DockPanel LastChildFill="True">
+            <Border DockPanel.Dock="Top" HorizontalAlignment="Stretch" BorderBrush="DarkGray" BorderThickness="3,3,3,0">
+                <StackPanel>
+                    <Label HorizontalContentAlignment="Center" FontSize="32" Background="LightGray" BorderBrush="DarkGray" BorderThickness="0,0,0,3">
+                        Test Your Microbots
+                    </Label>
+                    <Border Visibility="{Binding Path=ExceptionVisiblity, Mode=OneWay}">
+                        <Border BorderBrush="DarkGray" BorderThickness="0,0,0,3" Name="Exceptions"></Border>
+                    </Border>
+                    <Border Visibility="{Binding Path=MessageVisibility, Mode=OneWay}">
+                        <Border BorderBrush="DarkGray" BorderThickness="0,0,0,3" Name="Messages"></Border>
+                    </Border>
+                </StackPanel>
+            </Border>
+            <Border Name="WorldMenu" DockPanel.Dock="Left" BorderThickness="3,0,0,3" BorderBrush="DarkGray" Width="200" />
+            <Border Name="RunMenu" DockPanel.Dock="Bottom" BorderThickness="3,0,3,3" BorderBrush="DarkGray" Height="60" />
+            <Border BorderThickness="3,0,3,3" BorderBrush="DarkGray" Name="World" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+        </DockPanel>
+     </customFrameworkElements:WindowScrollViewer>
 </Window>
