@@ -98,8 +98,8 @@
     </Compile>
     <Compile Include="Views\Resources\Helpers\Command.cs" />
     <Compile Include="Views\Resources\Helpers\ObservableUserControl.cs" />
-    <Compile Include="Views\Resources\MessagesUserControl.xaml.cs">
-      <DependentUpon>MessagesUserControl.xaml</DependentUpon>
+    <Compile Include="Views\Resources\Controls\MessagesControl.xaml.cs">
+      <DependentUpon>MessagesControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RunMenuView.xaml.cs">
       <DependentUpon>RunMenuView.xaml</DependentUpon>
@@ -122,7 +122,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Resources\MessagesUserControl.xaml">
+    <Page Include="Views\Resources\Controls\MessagesControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

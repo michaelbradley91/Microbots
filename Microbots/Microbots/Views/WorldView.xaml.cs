@@ -4,8 +4,8 @@ using Microbots.Common.Extensions;
 using Microbots.Common.Helpers;
 using Microbots.Controllers;
 using Microbots.Extensions;
-using Microbots.Helpers;
 using Microbots.ViewModels;
+using Microbots.ViewModels.Helpers;
 
 namespace Microbots.Views
 {

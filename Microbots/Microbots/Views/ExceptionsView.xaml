@@ -3,15 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:messages="clr-namespace:Microbots.Views.Resources.Messages"
+             xmlns:resources="clr-namespace:Microbots.Views.Resources"
+             xmlns:controls="clr-namespace:Microbots.Views.Resources.Controls"
              mc:Ignorable="d"
              x:Name="This">
-    <messages:MessagesResourceContainer 
+    <controls:MessagesControlParameters 
         EventHandler="{Binding ElementName=This}"
         MessageMouseOverCloseColour="Red" 
         MessageTextColour="Red" 
         MessageBackgroundColour="Pink" 
         Title="Exceptions">
-        <messages:MessageUserControl />
-    </messages:MessagesResourceContainer>
+        <controls:MessagesControl />
+    </controls:MessagesControlParameters>
 </UserControl>

@@ -3,17 +3,17 @@ using System.Windows.Media;
 using Microbots.ViewModels;
 using Microbots.Views.Resources.Helpers;
 
-namespace Microbots.Views.Resources.Messages
+namespace Microbots.Views.Resources.Controls
 {
-    public partial class MessageUserControl
+    public partial class MessagesControl
     {
-        public MessageUserControl()
+        public MessagesControl()
         {
             InitializeComponent();
         }
     }
 
-    public class MessagesResourceContainer : ObservableUserControl<IMessageResourceEventHandler>
+    public class MessagesControlParameters : ObservableUserControl<IMessagesEventHandler>
     {
         public string Title { get { return Get<string>(); } set { Set(value); } }
         public Brush MessageTextColour { get { return Get<Brush>(); } set { Set(value); } }
@@ -24,7 +24,7 @@ namespace Microbots.Views.Resources.Messages
         public ICommand ClearAllMessagesCommand { get { return new Command(() => EventHandler.ClearAllMessages()); } }
     }
 
-    public interface IMessageResourceEventHandler
+    public interface IMessagesEventHandler
     {
         void ClearMessage(MessageViewModel messageViewModel);
         void ClearAllMessages();

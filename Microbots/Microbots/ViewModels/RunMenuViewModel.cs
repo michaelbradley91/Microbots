@@ -1,4 +1,4 @@
-﻿using Microbots.Helpers;
+﻿using Microbots.ViewModels.Helpers;
 
 namespace Microbots.ViewModels
 {

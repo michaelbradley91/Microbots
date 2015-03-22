@@ -1,5 +1,5 @@
 using System.Windows.Media;
-using Microbots.Helpers;
+using Microbots.ViewModels.Helpers;
 
 namespace Microbots.ViewModels
 {

@@ -1,5 +1,5 @@
 ﻿using Microbots.Common.Extensions;
-using Microbots.Helpers;
+using Microbots.ViewModels.Helpers;
 
 namespace Microbots.ViewModels
 {

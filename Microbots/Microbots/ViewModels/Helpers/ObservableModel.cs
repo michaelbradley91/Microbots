@@ -8,7 +8,7 @@ using System.Runtime.CompilerServices;
 using Microbots.Annotations;
 using Microbots.Common.Helpers;
 
-namespace Microbots.Helpers
+namespace Microbots.ViewModels.Helpers
 {
     public abstract class ObservableModel : INotifyPropertyChanged
     {

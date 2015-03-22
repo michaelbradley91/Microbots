@@ -2,11 +2,12 @@
 using Microbots.Controllers;
 using Microbots.Extensions;
 using Microbots.ViewModels;
-using Microbots.Views.Resources.Messages;
+using Microbots.Views.Resources;
+using Microbots.Views.Resources.Controls;
 
 namespace Microbots.Views
 {
-    public partial class ExceptionsView : IMessageResourceEventHandler
+    public partial class ExceptionsView : IMessagesEventHandler
     {
         private readonly IExceptionsController _exceptionsController;
         private readonly ExceptionsViewModel _exceptionsViewModel;
