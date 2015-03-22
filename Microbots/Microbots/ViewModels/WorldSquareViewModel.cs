@@ -5,11 +5,11 @@ namespace Microbots.ViewModels
 {
     public class WorldSquareViewModel : ObservableModel
     {
+        public Brush Colour { get { return Get<Brush>(); } set { Set(value); } }
+
         public WorldSquareViewModel()
         {
             Colour = Brushes.Yellow;
         }
-
-        public SolidColorBrush Colour { get { return Get<SolidColorBrush>(); } set { Set(value); } }
     }
 }

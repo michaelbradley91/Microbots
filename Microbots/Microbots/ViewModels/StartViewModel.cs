@@ -5,13 +5,13 @@ namespace Microbots.ViewModels
 {
     public class StartViewModel : ObservableModel
     {
+        public Visibility ExceptionVisiblity { get { return Get<Visibility>(); } set { Set(value); } }
+        public Visibility MessageVisibility { get { return Get<Visibility>(); } set { Set(value); } }
+
         public StartViewModel()
         {
             ExceptionVisiblity = Visibility.Visible;
             MessageVisibility = Visibility.Visible;
         }
-
-        public Visibility ExceptionVisiblity { get { return Get<Visibility>(); } set { Set(value); } }
-        public Visibility MessageVisibility { get { return Get<Visibility>(); } set { Set(value); } }
     }
 }
