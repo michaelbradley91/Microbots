@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d">
+             xmlns:viewModels="clr-namespace:Microbots.ViewModels"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance Type=viewModels:RunMenuViewModel}">
     <Label HorizontalAlignment="Stretch" Background="LightGray" HorizontalContentAlignment="Right">
         <StackPanel  Orientation="Horizontal">
             <Button Name="StartMenuButton" IsEnabled="{Binding Path=IsStartButtonEnabled, Mode=OneWay}" Height="45" FontSize="30" Padding="10,0" Margin="10,0" Click="StartMenuButtonClick">Start</Button>

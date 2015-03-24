@@ -23,7 +23,7 @@ namespace Microbots.Views.Resources.Controls
 
     public interface IMessagesEventHandler
     {
-        void ClearMessage(MessageViewModel messageViewModel);
+        void ClearMessage(MessageViewModel message);
         void ClearAllMessages();
     }
 }

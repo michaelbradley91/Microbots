@@ -3,7 +3,7 @@ using Microbots.Controllers;
 
 namespace Microbots.Views
 {
-    public partial class WorldMenuView : UserControl
+    public partial class WorldMenuView
     {
         private IWorldMenuController WorldMenuController { get; set; }
 

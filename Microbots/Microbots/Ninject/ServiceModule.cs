@@ -20,8 +20,10 @@ namespace Microbots.Ninject
             Bind<IRunMenuController>().To<RunMenuController>().InTransientScope();
             Bind<IWorldMenuController>().To<WorldMenuController>().InTransientScope();
             Bind<IWorldController>().To<WorldController>().InTransientScope();
-            Bind<IExceptionsController>().To<ExceptionsController>().InTransientScope();
-            Bind<IMessagesController>().To<MessagesController>().InTransientScope();
+            Bind<IErrorMessagesController>().To<ErrorMessagesController>().InTransientScope();
+            Bind<IInfoMessagesController>().To<InfoMessagesController>().InTransientScope();
+            Bind<ISuccessMessagesController>().To<SuccessMessagesController>().InTransientScope();
+            Bind<IMessagesCollectionController>().To<MessagesCollectionController>().InTransientScope();
         }
 
         public void LoadViewModels()
@@ -30,8 +32,10 @@ namespace Microbots.Ninject
             Bind<RunMenuViewModel>().ToSelf().InSingletonScope();
             Bind<WorldMenuViewModel>().ToSelf().InSingletonScope();
             Bind<WorldViewModel>().ToSelf().InSingletonScope();
-            Bind<ExceptionsViewModel>().ToSelf().InSingletonScope();
-            Bind<MessagesViewModel>().ToSelf().InSingletonScope();
+            Bind<ErrorMessagesViewModel>().ToSelf().InSingletonScope();
+            Bind<InfoMessagesViewModel>().ToSelf().InSingletonScope();
+            Bind<SuccessMessagesViewModel>().ToSelf().InSingletonScope();
+            Bind<MessagesCollectionViewModel>().ToSelf().InSingletonScope();
         }
 
         public void LoadViews()
@@ -40,8 +44,10 @@ namespace Microbots.Ninject
             Bind<RunMenuView>().ToSelf().InTransientScope();
             Bind<WorldMenuView>().ToSelf().InTransientScope();
             Bind<WorldView>().ToSelf().InTransientScope();
-            Bind<ExceptionsView>().ToSelf().InTransientScope();
-            Bind<MessagesView>().ToSelf().InTransientScope();
+            Bind<ErrorMessagesView>().ToSelf().InTransientScope();
+            Bind<InfoMessagesView>().ToSelf().InTransientScope();
+            Bind<SuccessMessagesView>().ToSelf().InTransientScope();
+            Bind<MessagesCollectionView>().ToSelf().InTransientScope();
         }
     }
 }

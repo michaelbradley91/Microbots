@@ -3,14 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d">
+             xmlns:viewModels="clr-namespace:Microbots.ViewModels"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance Type=viewModels:WorldViewModel}">
     <UserControl.Resources>
         <Style x:Key="WorldSquareStyle" TargetType="{x:Type Label}">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Label}">
                         <!-- This is scaled by a view box. The min and max settings are to enforce they are squares with a reasonable border to square size ratio -->
-                        <Border BorderBrush="DarkGray" BorderThickness="0,0,1,1" MinHeight="10" MinWidth="10" >
+                        <Border BorderBrush="DarkGray" BorderThickness="0,0,1,1" MinHeight="10" MinWidth="10" d:DataContext="{d:DesignInstance Type=viewModels:WorldSquareViewModel}">
                             <Rectangle Fill="{Binding Path=Colour, Mode=OneWay}" Stroke="{Binding Path=Colour, Mode=OneWay}" Width="Auto" Height="Auto"/>
                         </Border>
                     </ControlTemplate>

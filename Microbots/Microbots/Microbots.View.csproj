@@ -76,25 +76,31 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controllers\MessagesController.cs" />
-    <Compile Include="Controllers\ExceptionsController.cs" />
+    <Compile Include="Controllers\MessagesCollectionController.cs" />
     <Compile Include="Controllers\StartController.cs" />
     <Compile Include="Controllers\WorldController.cs" />
     <Compile Include="Controllers\WorldMenuController.cs" />
     <Compile Include="Controllers\RunMenuController.cs" />
     <Compile Include="Extensions\DependencyObjectExtensions.cs" />
     <Compile Include="Extensions\WpfExtensions.cs" />
+    <Compile Include="ViewModels\MessagesCollectionViewModel.cs" />
     <Compile Include="ViewModels\MessagesViewModel.cs" />
     <Compile Include="ViewModels\Helpers\ObservableModel.cs" />
     <Compile Include="Ninject\ServiceModule.cs" />
     <Compile Include="Properties\Annotations.cs" />
-    <Compile Include="ViewModels\ExceptionsViewModel.cs" />
     <Compile Include="ViewModels\WorldSquareViewModel.cs" />
     <Compile Include="ViewModels\StartViewModel.cs" />
     <Compile Include="ViewModels\WorldViewModel.cs" />
     <Compile Include="ViewModels\WorldMenuViewModel.cs" />
     <Compile Include="ViewModels\RunMenuViewModel.cs" />
-    <Compile Include="Views\MessagesView.xaml.cs">
-      <DependentUpon>MessagesView.xaml</DependentUpon>
+    <Compile Include="Views\MessagesCollectionView.xaml.cs">
+      <DependentUpon>MessagesCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SuccessMessagesView..xaml.cs">
+      <DependentUpon>SuccessMessagesView..xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InfoMessagesView.xaml.cs">
+      <DependentUpon>InfoMessagesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Resources\Helpers\Command.cs" />
     <Compile Include="Views\Resources\Helpers\ObservableUserControl.cs" />
@@ -108,8 +114,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Views\ExceptionsView.xaml.cs">
-      <DependentUpon>ExceptionsView.xaml</DependentUpon>
+    <Compile Include="Views\ErrorMessagesView.xaml.cs">
+      <DependentUpon>ErrorMessagesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Resources\Controls\WindowScrollViewer.cs" />
     <Compile Include="Views\WorldView.xaml.cs">
@@ -118,7 +124,15 @@
     <Compile Include="Views\WorldMenuView.xaml.cs">
       <DependentUpon>WorldMenuView.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\MessagesView.xaml">
+    <Page Include="Views\MessagesCollectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SuccessMessagesView..xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\InfoMessagesView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -138,7 +152,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ExceptionsView.xaml">
+    <Page Include="Views\ErrorMessagesView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

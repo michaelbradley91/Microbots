@@ -2,31 +2,79 @@
 
 namespace Microbots.Controllers
 {
+    public interface IErrorMessagesController : IMessagesController { }
+
+    public class ErrorMessagesController : MessagesController, IErrorMessagesController
+    {
+        public ErrorMessagesController(ErrorMessagesViewModel messagesViewModel, IMessagesCollectionController messagesCollectionController)
+            : base(messagesViewModel, messagesCollectionController) { }
+
+        public override void HideMessages()
+        {
+            MessagesCollectionController.HideErrorMessages();
+        }
+    }
+
+    public interface IInfoMessagesController : IMessagesController { }
+
+    public class InfoMessagesController : MessagesController, IInfoMessagesController
+    {
+        public InfoMessagesController(InfoMessagesViewModel messagesViewModel, IMessagesCollectionController messagesCollectionController)
+            : base(messagesViewModel, messagesCollectionController) { }
+
+        public override void HideMessages()
+        {
+            MessagesCollectionController.HideInfoMessages();
+        }
+    }
+
+    public interface ISuccessMessagesController : IMessagesController { }
+
+    public class SuccessMessagesController : MessagesController, ISuccessMessagesController
+    {
+        public SuccessMessagesController(SuccessMessagesViewModel messagesViewModel, IMessagesCollectionController messagesCollectionController)
+            : base(messagesViewModel, messagesCollectionController) { }
+
+        public override void HideMessages()
+        {
+            MessagesCollectionController.HideSuccessMessages();
+        }
+    }
+
     public interface IMessagesController
     {
         void ClearMessages();
         void AddMessage(MessageViewModel messageViewModel);
+        void RemoveMessage(MessageViewModel messageViewModel);
     }
 
-    public class MessagesController : IMessagesController
+    public abstract class MessagesController : IMessagesController
     {
-        private readonly IStartController _startController;
-        private readonly MessagesViewModel _messagesViewModel;
+        protected readonly MessagesViewModel MessagesViewModel;
+        protected readonly IMessagesCollectionController MessagesCollectionController;
 
-        public MessagesController(MessagesViewModel messagesViewModel, IStartController startController)
+        protected MessagesController(MessagesViewModel messagesViewModel, IMessagesCollectionController messagesCollectionController)
         {
-            _startController = startController;
-            _messagesViewModel = messagesViewModel;
+            MessagesViewModel = messagesViewModel;
+            MessagesCollectionController = messagesCollectionController;
         }
+
+        public abstract void HideMessages();
 
         public void ClearMessages()
         {
-            _startController.HideMessages();
+            MessagesViewModel.Messages.Clear();
+            HideMessages();
         }
 
         public void AddMessage(MessageViewModel messageViewModel)
         {
-            
+            MessagesViewModel.Messages.Add(messageViewModel);
+        }
+
+        public void RemoveMessage(MessageViewModel messageViewModel)
+        {
+            MessagesViewModel.Messages.Remove(messageViewModel);
         }
     }
 }

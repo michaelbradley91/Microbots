@@ -1,5 +1,4 @@
-﻿using System.Windows;
-using System.Windows.Media;
+﻿using System.Windows.Media;
 using Microbots.ViewModels;
 
 namespace Microbots.Controllers
@@ -15,23 +14,25 @@ namespace Microbots.Controllers
     {
         private readonly RunMenuViewModel _runMenuViewModel;
         private readonly WorldViewModel _worldViewModel;
-        private readonly StartViewModel _startViewModel;
-        private readonly ExceptionsViewModel _exceptionsViewModel;
-        private readonly MessagesViewModel _messagesViewModel;
+        private readonly IMessagesCollectionController _messagesCollectionController;
+        private readonly IErrorMessagesController _errorMessagesController;
+        private readonly IInfoMessagesController _infoMessagesController;
+        private readonly ISuccessMessagesController _successMessagesController;
 
-        public RunMenuController(RunMenuViewModel runMenuViewModel, WorldViewModel worldViewModel, StartViewModel startViewModel, ExceptionsViewModel exceptionsViewModel, MessagesViewModel messagesViewModel)
+        public RunMenuController(RunMenuViewModel runMenuViewModel, WorldViewModel worldViewModel, IMessagesCollectionController messagesCollectionController, IErrorMessagesController errorMessagesController, IInfoMessagesController infoMessagesController, ISuccessMessagesController successMessagesController)
         {
             _runMenuViewModel = runMenuViewModel;
             _worldViewModel = worldViewModel;
-            _startViewModel = startViewModel;
-            _exceptionsViewModel = exceptionsViewModel;
-            _messagesViewModel = messagesViewModel;
+            _messagesCollectionController = messagesCollectionController;
+            _errorMessagesController = errorMessagesController;
+            _infoMessagesController = infoMessagesController;
+            _successMessagesController = successMessagesController;
         }
 
         public void Start()
         {
-            _startViewModel.ExceptionVisiblity = Visibility.Visible;
-            _exceptionsViewModel.Exceptions.Add(new ExceptionViewModel {Summary = "New exception!!! WOWOW  WOWOWW WOWOWOW WWOOOW WWOOWOW WOWWOWOWOWOWOWOWW"});
+            _messagesCollectionController.ShowErrorMessages();
+            _errorMessagesController.AddMessage(new MessageViewModel { Summary = "New exception!!! WOWOW  WOWOWW WOWOWOW WWOOOW WWOOWOW WOWWOWOWOWOWOWOWW" });
             _runMenuViewModel.IsPauseButtonEnabled = true;
             _runMenuViewModel.IsStopButtonEnabled = true;
             _runMenuViewModel.IsStartButtonEnabled = false;
@@ -44,6 +45,8 @@ namespace Microbots.Controllers
 
         public void Pause()
         {
+            _messagesCollectionController.ShowSuccessMessages();
+            _successMessagesController.AddMessage(new MessageViewModel {Summary = "You love Hannah"});
             _runMenuViewModel.IsPauseButtonEnabled = false;
             _runMenuViewModel.IsStopButtonEnabled = true;
             _runMenuViewModel.IsStartButtonEnabled = false;
@@ -54,8 +57,8 @@ namespace Microbots.Controllers
             _runMenuViewModel.IsPauseButtonEnabled = false;
             _runMenuViewModel.IsStopButtonEnabled = false;
             _runMenuViewModel.IsStartButtonEnabled = true;
-            _startViewModel.MessageVisibility = Visibility.Visible;
-            _messagesViewModel.Messages.Add(new MessageViewModel { Summary = "New message!!! WOWOW  WOWOWW WOWOWOW WWOOOW WWOOWOW WOWWOWOWOWOWOWOWW" });
+            _messagesCollectionController.ShowInfoMessages();
+            _infoMessagesController.AddMessage(new MessageViewModel { Summary = "New message!!! WOWOW  WOWOWW WOWOWOW WWOOOW WWOOWOW WOWWOWOWOWOWOWOWW" });
             _worldViewModel.WorldSquares = WorldViewModel.CreateWorldSquares(3, 3);
             foreach (var square in _worldViewModel.WorldSquares)
             {

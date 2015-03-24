@@ -3,6 +3,10 @@ using Microbots.ViewModels.Helpers;
 
 namespace Microbots.ViewModels
 {
+    public class ErrorMessagesViewModel : MessagesViewModel { }
+    public class InfoMessagesViewModel : MessagesViewModel { }
+    public class SuccessMessagesViewModel : MessagesViewModel { }
+
     public class MessagesViewModel : ObservableModel
     {
         public ObservableCollection<MessageViewModel> Messages { get { return Get<ObservableCollection<MessageViewModel>>(); } set { Set(value); } }

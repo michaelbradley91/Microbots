@@ -4,13 +4,7 @@ namespace Microbots.Views
 {
     public partial class StartView
     {
-        public StartView(
-            RunMenuView runMenuView, 
-            WorldMenuView worldMenuView,
-            WorldView worldView,
-            ExceptionsView exceptionsView,
-            MessagesView messagesView,
-            StartViewModel startViewModel)
+        public StartView(RunMenuView runMenuView, WorldMenuView worldMenuView, WorldView worldView, MessagesCollectionView messagesCollectionView, StartViewModel startViewModel)
         {
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
@@ -18,8 +12,7 @@ namespace Microbots.Views
             RunMenu.Child = runMenuView;
             WorldMenu.Child = worldMenuView;
             World.Child = worldView;
-            Exceptions.Child = exceptionsView;
-            Messages.Child = messagesView;
+            Messages.Child = messagesCollectionView;
 
             DataContext = startViewModel;
         }

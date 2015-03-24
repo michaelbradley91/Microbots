@@ -1,13 +1,15 @@
-﻿<UserControl x:Class="Microbots.Views.MessagesView"
+﻿<UserControl x:Class="Microbots.Views.InfoMessagesView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:controls="clr-namespace:Microbots.Views.Resources.Controls"
+             xmlns:viewModels="clr-namespace:Microbots.ViewModels"
              mc:Ignorable="d"
-             x:Name="MessagesViewElement">
+             x:Name="InfoMessagesViewElement"
+             d:DataContext="{d:DesignInstance Type=viewModels:InfoMessagesViewModel}">
     <controls:MessagesControl
-        EventHandler="{Binding ElementName=MessagesViewElement}"
+        EventHandler="{Binding ElementName=InfoMessagesViewElement}"
         MessageMouseOverCloseColour="DarkGoldenrod" 
         MessageTextColour="DarkGoldenrod" 
         MessageBackgroundColour="LightGoldenrodYellow" 
