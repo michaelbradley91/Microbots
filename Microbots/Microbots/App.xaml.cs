@@ -20,8 +20,7 @@ namespace Microbots
         private void ConfigureContainer()
         {
             _kernel = new StandardKernel();
-            _kernel.Load(new ServiceModule());
-            _kernel.Load(new Common.Ninject.ServiceModule());
+            ServiceModulesProvider.LoadInto(_kernel);
         }
 
         private void ComposeObjects()

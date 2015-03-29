@@ -7,8 +7,8 @@
     <ProjectGuid>{6CFC1FD3-2BF6-4502-BFBB-53E6749A81C3}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Microbots</RootNamespace>
-    <AssemblyName>Microbots</AssemblyName>
+    <RootNamespace>Microbots.View</RootNamespace>
+    <AssemblyName>Microbots.View</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -83,6 +83,7 @@
     <Compile Include="Controllers\RunMenuController.cs" />
     <Compile Include="Extensions\DependencyObjectExtensions.cs" />
     <Compile Include="Extensions\WpfExtensions.cs" />
+    <Compile Include="Ninject\ServiceModulesProvider.cs" />
     <Compile Include="ViewModels\MessagesCollectionViewModel.cs" />
     <Compile Include="ViewModels\MessagesViewModel.cs" />
     <Compile Include="ViewModels\Helpers\ObservableModel.cs" />
