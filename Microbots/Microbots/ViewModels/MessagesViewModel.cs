@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
-using Microbots.ViewModels.Helpers;
+using Microbots.View.ViewModels.Helpers;
 
-namespace Microbots.ViewModels
+namespace Microbots.View.ViewModels
 {
     public class ErrorMessagesViewModel : MessagesViewModel { }
     public class InfoMessagesViewModel : MessagesViewModel { }

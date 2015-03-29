@@ -1,7 +1,7 @@
 ﻿using System.Windows.Media;
-using Microbots.ViewModels;
+using Microbots.View.ViewModels;
 
-namespace Microbots.Controllers
+namespace Microbots.View.Controllers
 {
     public interface IRunMenuController
     {

@@ -1,9 +1,9 @@
 ﻿using System.Windows.Input;
 using System.Windows.Media;
-using Microbots.ViewModels;
-using Microbots.Views.Resources.Helpers;
+using Microbots.View.ViewModels;
+using Microbots.View.Views.Resources.Helpers;
 
-namespace Microbots.Views.Resources.Controls
+namespace Microbots.View.Views.Resources.Controls
 {
     public partial class MessagesControl
     {

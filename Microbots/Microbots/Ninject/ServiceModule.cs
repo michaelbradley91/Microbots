@@ -1,9 +1,9 @@
-﻿using Microbots.Controllers;
-using Microbots.ViewModels;
-using Microbots.Views;
+﻿using Microbots.View.Controllers;
+using Microbots.View.ViewModels;
+using Microbots.View.Views;
 using Ninject.Modules;
 
-namespace Microbots.Ninject
+namespace Microbots.View.Ninject
 {
     public class ServiceModule : NinjectModule
     {

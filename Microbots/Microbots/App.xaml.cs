@@ -1,9 +1,9 @@
 ﻿using System.Windows;
-using Microbots.Ninject;
-using Microbots.Views;
+using Microbots.View.Ninject;
+using Microbots.View.Views;
 using Ninject;
 
-namespace Microbots
+namespace Microbots.View
 {
     public partial class App
     {

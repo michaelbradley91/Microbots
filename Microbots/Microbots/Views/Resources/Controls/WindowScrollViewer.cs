@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace Microbots.Views.Resources.Controls
+namespace Microbots.View.Views.Resources.Controls
 {
     public class WindowScrollViewer : ScrollViewer {}
 }

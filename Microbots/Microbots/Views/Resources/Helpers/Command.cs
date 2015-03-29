@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace Microbots.Views.Resources.Helpers
+namespace Microbots.View.Views.Resources.Helpers
 {
     public class Command : ICommand
     {

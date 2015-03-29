@@ -1,10 +1,9 @@
-﻿<Window x:Class="Microbots.Views.StartView"
+﻿<Window x:Class="Microbots.View.Views.StartView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:controls="clr-namespace:Microbots.Views.Resources.Controls"
-        xmlns:viewModels="clr-namespace:Microbots.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:Microbots.View.Views.Resources.Controls"
         mc:Ignorable="d"
         Title="Microbots"
         d:DataContext="{d:DesignInstance Type=viewModels:StartViewModel}">

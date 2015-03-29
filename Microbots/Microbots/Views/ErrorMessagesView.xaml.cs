@@ -1,8 +1,8 @@
-﻿using Microbots.Controllers;
-using Microbots.ViewModels;
-using Microbots.Views.Resources.Controls;
+﻿using Microbots.View.Controllers;
+using Microbots.View.ViewModels;
+using Microbots.View.Views.Resources.Controls;
 
-namespace Microbots.Views
+namespace Microbots.View.Views
 {
     public partial class ErrorMessagesView : IMessagesEventHandler
     {

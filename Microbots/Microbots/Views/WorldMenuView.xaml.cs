@@ -1,7 +1,6 @@
-﻿using System.Windows.Controls;
-using Microbots.Controllers;
+﻿using Microbots.View.Controllers;
 
-namespace Microbots.Views
+namespace Microbots.View.Views
 {
     public partial class WorldMenuView
     {

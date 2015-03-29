@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Microbots.ViewModels
+namespace Microbots.View.ViewModels
 {
     public class WorldMenuViewModel : DependencyObject
     {

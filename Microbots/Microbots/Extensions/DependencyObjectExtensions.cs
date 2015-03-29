@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Windows;
 
-namespace Microbots.Extensions
+namespace Microbots.View.Extensions
 {
     /// <summary>
     /// Provides a convenient way to create dependency properties. These can be bound to by a view, but cannot

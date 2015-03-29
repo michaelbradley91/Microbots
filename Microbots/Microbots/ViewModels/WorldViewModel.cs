@@ -1,7 +1,7 @@
 ﻿using Microbots.Common.Extensions;
-using Microbots.ViewModels.Helpers;
+using Microbots.View.ViewModels.Helpers;
 
-namespace Microbots.ViewModels
+namespace Microbots.View.ViewModels
 {
     public class WorldViewModel : ObservableModel
     {

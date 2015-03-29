@@ -2,12 +2,12 @@
 using System.Windows.Controls;
 using Microbots.Common.Extensions;
 using Microbots.Common.Helpers;
-using Microbots.Controllers;
-using Microbots.Extensions;
-using Microbots.ViewModels;
-using Microbots.ViewModels.Helpers;
+using Microbots.View.Controllers;
+using Microbots.View.Extensions;
+using Microbots.View.ViewModels;
+using Microbots.View.ViewModels.Helpers;
 
-namespace Microbots.Views
+namespace Microbots.View.Views
 {
     public partial class WorldView
     {

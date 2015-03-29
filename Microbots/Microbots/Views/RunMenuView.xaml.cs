@@ -1,8 +1,8 @@
 ﻿using System.Windows;
-using Microbots.Controllers;
-using Microbots.ViewModels;
+using Microbots.View.Controllers;
+using Microbots.View.ViewModels;
 
-namespace Microbots.Views
+namespace Microbots.View.Views
 {
     public partial class RunMenuView
     {

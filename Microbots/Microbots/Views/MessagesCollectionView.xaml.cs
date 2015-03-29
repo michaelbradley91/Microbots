@@ -1,6 +1,6 @@
-﻿using Microbots.ViewModels;
+﻿using Microbots.View.ViewModels;
 
-namespace Microbots.Views
+namespace Microbots.View.Views
 {
     public partial class MessagesCollectionView
     {

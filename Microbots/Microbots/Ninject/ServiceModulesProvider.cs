@@ -2,7 +2,7 @@
 using Ninject;
 using Ninject.Modules;
 
-namespace Microbots.Ninject
+namespace Microbots.View.Ninject
 {
     public class ServiceModulesProvider
     {

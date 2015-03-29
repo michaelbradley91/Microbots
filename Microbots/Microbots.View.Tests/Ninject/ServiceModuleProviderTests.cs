@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Microbots.Ninject;
+using Microbots.View.Ninject;
 using Ninject;
 using NUnit.Framework;
 

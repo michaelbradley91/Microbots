@@ -10,7 +10,7 @@ using System.Windows.Controls;
 using Microbots.Annotations;
 using Microbots.Common.Helpers;
 
-namespace Microbots.Views.Resources.Helpers
+namespace Microbots.View.Views.Resources.Helpers
 {
     public class ObservableUserControl<TE> : UserControl, INotifyPropertyChanged where TE : class
     {
