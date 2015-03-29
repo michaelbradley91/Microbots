@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:controls="clr-namespace:Microbots.View.Views.Resources.Controls"
+        xmlns:viewModels="clr-namespace:Microbots.View.ViewModels"
         mc:Ignorable="d"
         Title="Microbots"
         d:DataContext="{d:DesignInstance Type=viewModels:StartViewModel}">
