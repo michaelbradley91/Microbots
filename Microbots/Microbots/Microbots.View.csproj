@@ -83,6 +83,11 @@
     <Compile Include="Controllers\WorldController.cs" />
     <Compile Include="Controllers\WorldMenuController.cs" />
     <Compile Include="Controllers\RunMenuController.cs" />
+    <Compile Include="ExceptionHandlers\WorldMenuExceptionHandler.cs" />
+    <Compile Include="ExceptionHandlers\WorldExceptionHandler.cs" />
+    <Compile Include="ExceptionHandlers\StartExceptionHandler.cs" />
+    <Compile Include="ExceptionHandlers\MicrobotsExceptionHandler.cs" />
+    <Compile Include="ExceptionHandlers\RunMenuExceptionHandler.cs" />
     <Compile Include="Extensions\DependencyObjectExtensions.cs" />
     <Compile Include="Extensions\WpfExtensions.cs" />
     <Compile Include="Ninject\ServiceModulesProvider.cs" />
@@ -196,13 +201,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ExceptionHandlers\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Microbots.Common\Microbots.Common.csproj">
       <Project>{5735bc8b-2b38-4743-96e6-abd618f02b93}</Project>
       <Name>Microbots.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microbots.Models\Microbots.Models.csproj">
+      <Project>{2DB0D9B1-CD4F-4311-8EAF-1997E5B145DA}</Project>
+      <Name>Microbots.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

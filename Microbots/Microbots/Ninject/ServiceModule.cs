@@ -1,4 +1,5 @@
 ﻿using Microbots.View.Controllers;
+using Microbots.View.ExceptionHandlers;
 using Microbots.View.ViewModels;
 using Microbots.View.Views;
 using Ninject.Modules;
@@ -16,10 +17,11 @@ namespace Microbots.View.Ninject
 
         public void LoadControllers()
         {
-            Bind<IStartController>().To<StartController>().InTransientScope();
-            Bind<IRunMenuController>().To<RunMenuController>().InTransientScope();
-            Bind<IWorldMenuController>().To<WorldMenuController>().InTransientScope();
-            Bind<IWorldController>().To<WorldController>().InTransientScope();
+            Bind<IStartController>().To<StartExceptionHandler>().InTransientScope();
+            Bind<IRunMenuController>().To<RunMenuExceptionHandler>().InTransientScope();
+            Bind<IWorldMenuController>().To<WorldMenuExceptionHandler>().InTransientScope();
+            Bind<IWorldController>().To<WorldExceptionHandler>().InTransientScope();
+
             Bind<IErrorMessagesController>().To<ErrorMessagesController>().InTransientScope();
             Bind<IInfoMessagesController>().To<InfoMessagesController>().InTransientScope();
             Bind<ISuccessMessagesController>().To<SuccessMessagesController>().InTransientScope();

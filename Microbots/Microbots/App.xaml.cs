@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
+using System.Windows.Threading;
+using Microbots.View.ExceptionHandlers;
 using Microbots.View.Ninject;
 using Microbots.View.Views;
 using Ninject;

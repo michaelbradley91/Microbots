@@ -37,6 +37,16 @@ namespace Microbots.View.Tests.Ninject
         }
 
         [Test]
+        public void TestExceptionHandlerBindings()
+        {
+            foreach (var type in GetAllTypesWithSuffix("ExceptionHandler").Where(t => t.IsInterface))
+            {
+                var viewModel = _kernel.Get(type);
+                Assert.That(viewModel, Is.Not.Null);
+            }
+        }
+
+        [Test]
         public void TestViewModelBindings()
         {
             foreach (var type in GetAllTypesWithSuffix("ViewModel"))
@@ -64,8 +74,7 @@ namespace Microbots.View.Tests.Ninject
 
         private bool HasConcreteImplementation(Type type)
         {
-            if (type.IsAbstract) return _assemblyTypes.Any(t => t.Name == type.Name.Substring(1) && !t.IsAbstract);
-            return true;
+            return !type.IsAbstract || _assemblyTypes.Any(t => t.Name == type.Name.Substring(1) && !t.IsAbstract);
         }
     }
 }

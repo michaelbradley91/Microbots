@@ -19,11 +19,11 @@
         </Style>
         <Style TargetType="Polygon" x:Key="PolygonStyle">
             <Style.Triggers>
-                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type Button}}, Path=IsEnabled}" Value="True">
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type ToggleButton}}, Path=IsEnabled}" Value="True">
                     <Setter Property="Fill" Value="Black"/>
                     <Setter Property="Stroke" Value="Black"/>
                 </DataTrigger>
-                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type Button}}, Path=IsEnabled}" Value="False">
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type ToggleButton}}, Path=IsEnabled}" Value="False">
                     <Setter Property="Fill" Value="DarkGray"/>
                     <Setter Property="Stroke" Value="DarkGray"/>
                 </DataTrigger>
@@ -42,7 +42,6 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
         <Style x:Key="SliderThumb" TargetType="Thumb">
             <Setter Property="SnapsToDevicePixels" Value="true" />
             <Setter Property="OverridesDefaultStyle" Value="true" />
@@ -54,7 +53,6 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
         <ControlTemplate x:Key="Slider" TargetType="Slider">
             <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                 <Track x:Name="PART_Track">
@@ -70,32 +68,26 @@
                 </Track>
             </Border>
         </ControlTemplate>
-
         <Style x:Key="SliderStyle" TargetType="Slider">
             <Setter Property="Focusable" Value="False"/>
             <Setter Property="SnapsToDevicePixels" Value="true" />
             <Setter Property="OverridesDefaultStyle" Value="true" />
             <Setter Property="Template" Value="{StaticResource Slider}" />
             <Setter Property="MinWidth" Value="100" />
+            <Setter Property="Minimum" Value="0" />
+            <Setter Property="Maximum" Value="1" />
         </Style>
-        
     </UserControl.Resources>
     <Grid HorizontalAlignment="Stretch" Background="LightGray">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="70"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="70"></ColumnDefinition>
             <ColumnDefinition Width="70"></ColumnDefinition>
             <ColumnDefinition Width="70"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Button Grid.Column="0" Name="StopMenuButton" IsEnabled="{Binding Path=IsStopButtonEnabled, Mode=OneWay}" Height="45" Padding="10,0" Margin="10,0" Click="StopMenuButtonClick">
-            <StackPanel Orientation="Horizontal" Height="26">
-                <Rectangle Width="26" Stretch="UniformToFill" Style="{StaticResource RectangleStyle}"/>
-            </StackPanel>
-        </Button>
-        <Slider Grid.Column="1" BorderBrush="DarkGray" BorderThickness="2" TickPlacement="BottomRight" HorizontalAlignment="Stretch" Height="30" Padding="10,0" Margin="10,0" Style="{StaticResource SliderStyle}"></Slider>
-        <Button Grid.Column="2" Name="PlayBackwardsMenuButton" IsEnabled="{Binding Path=IsStartButtonEnabled, Mode=OneWay}" Height="45" Padding="10,0" Margin="10,0" Click="StartMenuButtonClick">
+        <Slider Grid.Column="0" IsDirectionReversed="True" BorderBrush="DarkGray" BorderThickness="2" TickPlacement="BottomRight" HorizontalAlignment="Stretch" Height="30" Padding="10,0" Margin="10,0" Style="{StaticResource SliderStyle}" Value="{Binding Path=PlayBackwardsSpeed, Mode=TwoWay, Delay=100}"></Slider>
+        <ToggleButton Grid.Column="1" Name="PlayBackwardsMenuButton" IsEnabled="{Binding Path=IsPlayBackwardsEnabled, Mode=OneWay}" IsChecked="{Binding Path=IsPlayBackwardsPressed, Mode=TwoWay}" Height="45" Padding="10,0" Margin="10,0">
             <StackPanel Orientation="Horizontal" Height="30">
                 <Polygon Points="0,0 25,14, 0,28" Margin="0,1,-4,0" Style="{StaticResource PolygonStyle}">
                     <Polygon.RenderTransform>
@@ -103,18 +95,18 @@
                     </Polygon.RenderTransform>
                 </Polygon>
             </StackPanel>
-        </Button>
-        <Button Grid.Column="3" Name="PauseMenuButton" IsEnabled="{Binding Path=IsPauseButtonEnabled, Mode=OneWay}" Height="45" Padding="10,0" Margin="10,0" Click="PauseMenuButtonClick">
+        </ToggleButton>
+        <Button Grid.Column="2" Name="PauseMenuButton" IsEnabled="{Binding Path=IsPauseEnabled, Mode=OneWay}" Height="45" Padding="10,0" Margin="10,0">
             <StackPanel Orientation="Horizontal" Height="26">
                 <Rectangle Margin="0,0,4,0" Width="8" Stretch="UniformToFill" Style="{StaticResource RectangleStyle}"/>
                 <Rectangle Margin="4,0,0,0" Width="8" Stretch="UniformToFill" Style="{StaticResource RectangleStyle}"/>
             </StackPanel>
         </Button>
-        <Button Grid.Column="4" Name="PlayForwardsMenuButton" IsEnabled="{Binding Path=IsStartButtonEnabled, Mode=OneWay}" Height="45" Padding="10,0" Margin="10,0" Click="StartMenuButtonClick">
+        <ToggleButton Grid.Column="3" Name="PlayForwardsMenuButton" IsEnabled="{Binding Path=IsPlayForwardsEnabled, Mode=OneWay}" IsChecked="{Binding Path=IsPlayForwardsPressed, Mode=TwoWay}" Height="45" Padding="10,0" Margin="10,0">
             <StackPanel Orientation="Horizontal" Height="30">
                 <Polygon Points="0,0 25,14, 0,28" Margin="0,1,-4,0" Style="{StaticResource PolygonStyle}"/>
             </StackPanel>
-        </Button>
-        <Slider Grid.Column="5" BorderBrush="DarkGray" BorderThickness="2" TickPlacement="BottomRight" HorizontalAlignment="Stretch" Height="30" Padding="10,0" Margin="10,0" Style="{StaticResource SliderStyle}" ValueChanged="Slider_ValueChanged"></Slider>
+        </ToggleButton>
+        <Slider Grid.Column="4" BorderBrush="DarkGray" BorderThickness="2" TickPlacement="BottomRight" HorizontalAlignment="Stretch" Height="30" Padding="10,0" Margin="10,0" Style="{StaticResource SliderStyle}" Value="{Binding Path=PlayForwardsSpeed, Mode=TwoWay, Delay=100}"></Slider>
     </Grid>
 </UserControl>

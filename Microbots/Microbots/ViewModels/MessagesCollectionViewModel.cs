@@ -11,9 +11,9 @@ namespace Microbots.View.ViewModels
 
         public MessagesCollectionViewModel()
         {
-            ErrorMessagesVisibility = Visibility.Visible;
-            InfoMessagesVisibility = Visibility.Visible;
-            SuccessMessagesVisibility = Visibility.Visible;
+            ErrorMessagesVisibility = Visibility.Collapsed;
+            InfoMessagesVisibility = Visibility.Collapsed;
+            SuccessMessagesVisibility = Visibility.Collapsed;
         }
     }
 }

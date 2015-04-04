@@ -1,38 +1,47 @@
-﻿using System.Windows;
-using Microbots.View.Controllers;
+﻿using Microbots.View.Controllers;
 using Microbots.View.ViewModels;
+using Microbots.View.ViewModels.Helpers;
 
 namespace Microbots.View.Views
 {
     public partial class RunMenuView
     {
-        private IRunMenuController RunMenuController { get; set; }
+        private readonly IRunMenuController _runMenuController;
+        private readonly RunMenuViewModel _runMenuViewModel;
 
         public RunMenuView(IRunMenuController runMenuController, RunMenuViewModel runMenuViewModel)
         {
-            RunMenuController = runMenuController;
+            _runMenuController = runMenuController;
+            _runMenuViewModel = runMenuViewModel;
             InitializeComponent();
             DataContext = runMenuViewModel;
+
+            _runMenuViewModel.AddChangeHandler(TogglePlayForwardsChanged, rvm => rvm.IsPlayForwardsPressed);
+            _runMenuViewModel.AddChangeHandler(TogglePlayBackwardsChanged, rvm => rvm.IsPlayBackwardsPressed);
         }
 
-        private void StartMenuButtonClick(object sender, RoutedEventArgs e)
+        private void TogglePlayForwardsChanged()
         {
-            RunMenuController.Start();
+            if (_runMenuViewModel.IsPlayForwardsPressed)
+            {
+                _runMenuController.StartPlayingForwards();
+            }
+            else
+            {
+                _runMenuController.StopPlayingForwards();
+            }
         }
 
-        private void PauseMenuButtonClick(object sender, RoutedEventArgs e)
+        private void TogglePlayBackwardsChanged()
         {
-            RunMenuController.Pause();
-        }
-
-        private void StopMenuButtonClick(object sender, RoutedEventArgs e)
-        {
-            RunMenuController.Stop();
-        }
-
-        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-
+            if (_runMenuViewModel.IsPlayBackwardsPressed)
+            {
+                _runMenuController.StartPlayingBackwards();
+            }
+            else
+            {
+                _runMenuController.StopPlayingBackwards();
+            }
         }
     }
 }

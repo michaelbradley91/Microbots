@@ -44,6 +44,7 @@ namespace Microbots.View.Controllers
     public interface IMessagesController
     {
         void ClearMessages();
+        void HideMessages();
         void AddMessage(MessageViewModel messageViewModel);
         void RemoveMessage(MessageViewModel messageViewModel);
     }

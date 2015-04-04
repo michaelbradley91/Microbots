@@ -1,69 +1,58 @@
-﻿using System.Windows.Media;
+﻿using System;
+using System.Diagnostics;
+using Microbots.Models.Exceptions;
 using Microbots.View.ViewModels;
+using Microbots.View.ViewModels.Helpers;
 
 namespace Microbots.View.Controllers
 {
     public interface IRunMenuController
     {
-        void Start();
-        void Pause();
-        void Stop();
+        void StartPlayingForwards();
+        void StopPlayingForwards();
+        void StartPlayingBackwards();
+        void StopPlayingBackwards();
     }
 
     public class RunMenuController : IRunMenuController
     {
         private readonly RunMenuViewModel _runMenuViewModel;
-        private readonly WorldViewModel _worldViewModel;
-        private readonly IMessagesCollectionController _messagesCollectionController;
-        private readonly IErrorMessagesController _errorMessagesController;
-        private readonly IInfoMessagesController _infoMessagesController;
-        private readonly ISuccessMessagesController _successMessagesController;
 
-        public RunMenuController(RunMenuViewModel runMenuViewModel, WorldViewModel worldViewModel, IMessagesCollectionController messagesCollectionController, IErrorMessagesController errorMessagesController, IInfoMessagesController infoMessagesController, ISuccessMessagesController successMessagesController)
+        public RunMenuController(RunMenuViewModel runMenuViewModel)
         {
             _runMenuViewModel = runMenuViewModel;
-            _worldViewModel = worldViewModel;
-            _messagesCollectionController = messagesCollectionController;
-            _errorMessagesController = errorMessagesController;
-            _infoMessagesController = infoMessagesController;
-            _successMessagesController = successMessagesController;
+            _runMenuViewModel.AddChangeHandler(ForwardsSpeedChanged, rvm => rvm.PlayForwardsSpeed);
+            _runMenuViewModel.AddChangeHandler(BackwardsSpeedChanged, rvm => rvm.PlayBackwardsSpeed);
         }
 
-        public void Start()
+        public void StartPlayingForwards()
         {
-            _messagesCollectionController.ShowErrorMessages();
-            _errorMessagesController.AddMessage(new MessageViewModel { Summary = "New exception!!! WOWOW  WOWOWW WOWOWOW WWOOOW WWOOWOW WOWWOWOWOWOWOWOWW" });
-            _runMenuViewModel.IsPauseButtonEnabled = true;
-            _runMenuViewModel.IsStopButtonEnabled = true;
-            _runMenuViewModel.IsStartButtonEnabled = false;
-            _worldViewModel.WorldSquares = WorldViewModel.CreateWorldSquares(5, 5);
-            foreach (var square in _worldViewModel.WorldSquares)
-            {
-                square.Colour = Brushes.Red;
-            }
+            Debug.WriteLine("Start playing forwards");
         }
 
-        public void Pause()
+        public void StopPlayingForwards()
         {
-            _messagesCollectionController.ShowSuccessMessages();
-            _successMessagesController.AddMessage(new MessageViewModel {Summary = "You love Hannah"});
-            _runMenuViewModel.IsPauseButtonEnabled = false;
-            _runMenuViewModel.IsStopButtonEnabled = true;
-            _runMenuViewModel.IsStartButtonEnabled = false;
+            Debug.WriteLine("Stop playing forwards");
         }
 
-        public void Stop()
+        public void StartPlayingBackwards()
         {
-            _runMenuViewModel.IsPauseButtonEnabled = false;
-            _runMenuViewModel.IsStopButtonEnabled = false;
-            _runMenuViewModel.IsStartButtonEnabled = true;
-            _messagesCollectionController.ShowInfoMessages();
-            _infoMessagesController.AddMessage(new MessageViewModel { Summary = "New message!!! WOWOW  WOWOWW WOWOWOW WWOOOW WWOOWOW WOWWOWOWOWOWOWOWW" });
-            _worldViewModel.WorldSquares = WorldViewModel.CreateWorldSquares(3, 3);
-            foreach (var square in _worldViewModel.WorldSquares)
-            {
-                square.Colour = Brushes.Green;
-            }
+            Debug.WriteLine("Start playing backwards");
+        }
+
+        public void StopPlayingBackwards()
+        {
+            Debug.WriteLine("Stop playing backwards");
+        }
+
+        private void ForwardsSpeedChanged()
+        {
+            Debug.WriteLine("Forwards Speed is now " + _runMenuViewModel.PlayForwardsSpeed);
+        }
+
+        private void BackwardsSpeedChanged()
+        {
+            Debug.WriteLine("Backwards Speed is now " + _runMenuViewModel.PlayBackwardsSpeed);
         }
     }
 }
