@@ -29,5 +29,10 @@ namespace Microbots.View.Views
         {
             RunMenuController.Stop();
         }
+
+        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
     }
 }

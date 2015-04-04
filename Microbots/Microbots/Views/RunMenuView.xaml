@@ -6,11 +6,115 @@
              xmlns:viewModels="clr-namespace:Microbots.View.ViewModels"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance Type=viewModels:RunMenuViewModel}">
-    <Label HorizontalAlignment="Stretch" Background="LightGray" HorizontalContentAlignment="Right">
-        <StackPanel  Orientation="Horizontal">
-            <Button Name="StartMenuButton" IsEnabled="{Binding Path=IsStartButtonEnabled, Mode=OneWay}" Height="45" FontSize="30" Padding="10,0" Margin="10,0" Click="StartMenuButtonClick">Start</Button>
-            <Button Name="PauseMenuButton" IsEnabled="{Binding Path=IsPauseButtonEnabled, Mode=OneWay}" Height="45" FontSize="30" Padding="10,0" Margin="10,0" Click="PauseMenuButtonClick">Pause</Button>
-            <Button Name="StopMenuButton" IsEnabled="{Binding Path=IsStopButtonEnabled, Mode=OneWay}" Height="45" FontSize="30" Padding="10,0" Margin="10,0" Click="StopMenuButtonClick">Stop</Button>
-        </StackPanel>
-    </Label>
+    <UserControl.Resources>
+        <Style TargetType="Rectangle" x:Key="RectangleStyle">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type Button}}, Path=IsEnabled}" Value="True">
+                    <Setter Property="Fill" Value="Black"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type Button}}, Path=IsEnabled}" Value="False">
+                    <Setter Property="Fill" Value="DarkGray"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="Polygon" x:Key="PolygonStyle">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type Button}}, Path=IsEnabled}" Value="True">
+                    <Setter Property="Fill" Value="Black"/>
+                    <Setter Property="Stroke" Value="Black"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type Button}}, Path=IsEnabled}" Value="False">
+                    <Setter Property="Fill" Value="DarkGray"/>
+                    <Setter Property="Stroke" Value="DarkGray"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="SliderRepeatButton" TargetType="RepeatButton">
+            <Setter Property="SnapsToDevicePixels" Value="true" />
+            <Setter Property="OverridesDefaultStyle" Value="true" />
+            <Setter Property="IsTabStop" Value="false" />
+            <Setter Property="Focusable" Value="false" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RepeatButton">
+                        <Border BorderThickness="1" BorderBrush="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Height="{TemplateBinding Height}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="SliderThumb" TargetType="Thumb">
+            <Setter Property="SnapsToDevicePixels" Value="true" />
+            <Setter Property="OverridesDefaultStyle" Value="true" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Thumb">
+                        <Rectangle Height="{TemplateBinding Height}" Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type Slider}}, Path=Height}" Fill="Black"></Rectangle>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <ControlTemplate x:Key="Slider" TargetType="Slider">
+            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                <Track x:Name="PART_Track">
+                    <Track.DecreaseRepeatButton>
+                        <RepeatButton Style="{StaticResource SliderRepeatButton}" Command="Slider.DecreaseLarge" />
+                    </Track.DecreaseRepeatButton>
+                    <Track.Thumb>
+                        <Thumb Style="{StaticResource SliderThumb}"  />
+                    </Track.Thumb>
+                    <Track.IncreaseRepeatButton>
+                        <RepeatButton Style="{StaticResource SliderRepeatButton}" Command="Slider.IncreaseLarge" />
+                    </Track.IncreaseRepeatButton>
+                </Track>
+            </Border>
+        </ControlTemplate>
+
+        <Style x:Key="SliderStyle" TargetType="Slider">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="SnapsToDevicePixels" Value="true" />
+            <Setter Property="OverridesDefaultStyle" Value="true" />
+            <Setter Property="Template" Value="{StaticResource Slider}" />
+            <Setter Property="MinWidth" Value="100" />
+        </Style>
+        
+    </UserControl.Resources>
+    <Grid HorizontalAlignment="Stretch" Background="LightGray">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="70"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="70"></ColumnDefinition>
+            <ColumnDefinition Width="70"></ColumnDefinition>
+            <ColumnDefinition Width="70"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Button Grid.Column="0" Name="StopMenuButton" IsEnabled="{Binding Path=IsStopButtonEnabled, Mode=OneWay}" Height="45" Padding="10,0" Margin="10,0" Click="StopMenuButtonClick">
+            <StackPanel Orientation="Horizontal" Height="26">
+                <Rectangle Width="26" Stretch="UniformToFill" Style="{StaticResource RectangleStyle}"/>
+            </StackPanel>
+        </Button>
+        <Slider Grid.Column="1" BorderBrush="DarkGray" BorderThickness="2" TickPlacement="BottomRight" HorizontalAlignment="Stretch" Height="30" Padding="10,0" Margin="10,0" Style="{StaticResource SliderStyle}"></Slider>
+        <Button Grid.Column="2" Name="PlayBackwardsMenuButton" IsEnabled="{Binding Path=IsStartButtonEnabled, Mode=OneWay}" Height="45" Padding="10,0" Margin="10,0" Click="StartMenuButtonClick">
+            <StackPanel Orientation="Horizontal" Height="30">
+                <Polygon Points="0,0 25,14, 0,28" Margin="0,1,-4,0" Style="{StaticResource PolygonStyle}">
+                    <Polygon.RenderTransform>
+                        <ScaleTransform ScaleX="-1" CenterX="11"></ScaleTransform>
+                    </Polygon.RenderTransform>
+                </Polygon>
+            </StackPanel>
+        </Button>
+        <Button Grid.Column="3" Name="PauseMenuButton" IsEnabled="{Binding Path=IsPauseButtonEnabled, Mode=OneWay}" Height="45" Padding="10,0" Margin="10,0" Click="PauseMenuButtonClick">
+            <StackPanel Orientation="Horizontal" Height="26">
+                <Rectangle Margin="0,0,4,0" Width="8" Stretch="UniformToFill" Style="{StaticResource RectangleStyle}"/>
+                <Rectangle Margin="4,0,0,0" Width="8" Stretch="UniformToFill" Style="{StaticResource RectangleStyle}"/>
+            </StackPanel>
+        </Button>
+        <Button Grid.Column="4" Name="PlayForwardsMenuButton" IsEnabled="{Binding Path=IsStartButtonEnabled, Mode=OneWay}" Height="45" Padding="10,0" Margin="10,0" Click="StartMenuButtonClick">
+            <StackPanel Orientation="Horizontal" Height="30">
+                <Polygon Points="0,0 25,14, 0,28" Margin="0,1,-4,0" Style="{StaticResource PolygonStyle}"/>
+            </StackPanel>
+        </Button>
+        <Slider Grid.Column="5" BorderBrush="DarkGray" BorderThickness="2" TickPlacement="BottomRight" HorizontalAlignment="Stretch" Height="30" Padding="10,0" Margin="10,0" Style="{StaticResource SliderStyle}" ValueChanged="Slider_ValueChanged"></Slider>
+    </Grid>
 </UserControl>
