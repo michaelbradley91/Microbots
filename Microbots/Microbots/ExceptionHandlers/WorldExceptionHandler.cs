@@ -2,14 +2,14 @@
 
 namespace Microbots.View.ExceptionHandlers
 {
-    class WorldExceptionHandler : MicrobotsExceptionHandler, IWorldController
+    class LevelExceptionHandler : MicrobotsExceptionHandler, ILevelController
     {
-        private readonly IWorldController _worldController;
+        private readonly ILevelController _levelController;
 
-        public WorldExceptionHandler(WorldController worldController, ErrorMessagesController errorMessagesController, MessagesCollectionController messagesCollectionController) 
+        public LevelExceptionHandler(LevelController levelController, ErrorMessagesController errorMessagesController, MessagesCollectionController messagesCollectionController) 
             : base(errorMessagesController, messagesCollectionController)
         {
-            _worldController = worldController;
+            _levelController = levelController;
         }
     }
 }

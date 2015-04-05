@@ -2,6 +2,7 @@
 using Microbots.View.ExceptionHandlers;
 using Microbots.View.ViewModels;
 using Microbots.View.Views;
+using Microbots.View.Views.TestYourMicrobots;
 using Ninject.Modules;
 
 namespace Microbots.View.Ninject
@@ -17,10 +18,9 @@ namespace Microbots.View.Ninject
 
         public void LoadControllers()
         {
-            Bind<IStartController>().To<StartExceptionHandler>().InTransientScope();
             Bind<IRunMenuController>().To<RunMenuExceptionHandler>().InTransientScope();
-            Bind<IWorldMenuController>().To<WorldMenuExceptionHandler>().InTransientScope();
-            Bind<IWorldController>().To<WorldExceptionHandler>().InTransientScope();
+            Bind<ILevelSelectController>().To<LevelSelectExceptionHandler>().InTransientScope();
+            Bind<ILevelController>().To<LevelExceptionHandler>().InTransientScope();
 
             Bind<IErrorMessagesController>().To<ErrorMessagesController>().InTransientScope();
             Bind<IInfoMessagesController>().To<InfoMessagesController>().InTransientScope();
@@ -30,10 +30,9 @@ namespace Microbots.View.Ninject
 
         public void LoadViewModels()
         {
-            Bind<StartViewModel>().ToSelf().InSingletonScope();
             Bind<RunMenuViewModel>().ToSelf().InSingletonScope();
-            Bind<WorldMenuViewModel>().ToSelf().InSingletonScope();
-            Bind<WorldViewModel>().ToSelf().InSingletonScope();
+            Bind<LevelSelectViewModel>().ToSelf().InSingletonScope();
+            Bind<LevelViewModel>().ToSelf().InSingletonScope();
             Bind<ErrorMessagesViewModel>().ToSelf().InSingletonScope();
             Bind<InfoMessagesViewModel>().ToSelf().InSingletonScope();
             Bind<SuccessMessagesViewModel>().ToSelf().InSingletonScope();
@@ -43,9 +42,10 @@ namespace Microbots.View.Ninject
         public void LoadViews()
         {
             Bind<StartView>().ToSelf().InTransientScope();
+            Bind<TestYourMicrobotsView>().ToSelf().InTransientScope();
             Bind<RunMenuView>().ToSelf().InTransientScope();
-            Bind<WorldMenuView>().ToSelf().InTransientScope();
-            Bind<WorldView>().ToSelf().InTransientScope();
+            Bind<LevelSelectView>().ToSelf().InTransientScope();
+            Bind<LevelView>().ToSelf().InTransientScope();
             Bind<ErrorMessagesView>().ToSelf().InTransientScope();
             Bind<InfoMessagesView>().ToSelf().InTransientScope();
             Bind<SuccessMessagesView>().ToSelf().InTransientScope();

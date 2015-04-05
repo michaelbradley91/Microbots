@@ -79,27 +79,25 @@
     </Compile>
     <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Controllers\MessagesCollectionController.cs" />
-    <Compile Include="Controllers\StartController.cs" />
     <Compile Include="Controllers\WorldController.cs" />
     <Compile Include="Controllers\WorldMenuController.cs" />
     <Compile Include="Controllers\RunMenuController.cs" />
     <Compile Include="ExceptionHandlers\WorldMenuExceptionHandler.cs" />
     <Compile Include="ExceptionHandlers\WorldExceptionHandler.cs" />
-    <Compile Include="ExceptionHandlers\StartExceptionHandler.cs" />
     <Compile Include="ExceptionHandlers\MicrobotsExceptionHandler.cs" />
     <Compile Include="ExceptionHandlers\RunMenuExceptionHandler.cs" />
     <Compile Include="Extensions\DependencyObjectExtensions.cs" />
     <Compile Include="Extensions\WpfExtensions.cs" />
     <Compile Include="Ninject\ServiceModulesProvider.cs" />
+    <Compile Include="ViewModels\LevelDescriptionViewModel.cs" />
     <Compile Include="ViewModels\MessagesCollectionViewModel.cs" />
     <Compile Include="ViewModels\MessagesViewModel.cs" />
     <Compile Include="ViewModels\Helpers\ObservableModel.cs" />
     <Compile Include="Ninject\ServiceModule.cs" />
     <Compile Include="Properties\Annotations.cs" />
-    <Compile Include="ViewModels\WorldSquareViewModel.cs" />
-    <Compile Include="ViewModels\StartViewModel.cs" />
-    <Compile Include="ViewModels\WorldViewModel.cs" />
-    <Compile Include="ViewModels\WorldMenuViewModel.cs" />
+    <Compile Include="ViewModels\LevelSquareViewModel.cs" />
+    <Compile Include="ViewModels\LevelViewModel.cs" />
+    <Compile Include="ViewModels\LevelSelectViewModel.cs" />
     <Compile Include="ViewModels\RunMenuViewModel.cs" />
     <Compile Include="Views\MessagesCollectionView.xaml.cs">
       <DependentUpon>MessagesCollectionView.xaml</DependentUpon>
@@ -115,7 +113,10 @@
     <Compile Include="Views\Resources\Controls\MessagesControl.xaml.cs">
       <DependentUpon>MessagesControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\RunMenuView.xaml.cs">
+    <Compile Include="Views\TestYourMicrobots\TestYourMicrobotsView.xaml.cs">
+      <DependentUpon>TestYourMicrobotsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TestYourMicrobots\RunMenuView.xaml.cs">
       <DependentUpon>RunMenuView.xaml</DependentUpon>
     </Compile>
     <ApplicationDefinition Include="App.xaml">
@@ -126,11 +127,11 @@
       <DependentUpon>ErrorMessagesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Resources\Controls\WindowScrollViewer.cs" />
-    <Compile Include="Views\WorldView.xaml.cs">
-      <DependentUpon>WorldView.xaml</DependentUpon>
+    <Compile Include="Views\TestYourMicrobots\LevelView.xaml.cs">
+      <DependentUpon>LevelView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\WorldMenuView.xaml.cs">
-      <DependentUpon>WorldMenuView.xaml</DependentUpon>
+    <Compile Include="Views\TestYourMicrobots\LevelSelectView.xaml.cs">
+      <DependentUpon>LevelSelectView.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\MessagesCollectionView.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -156,7 +157,11 @@
       <DependentUpon>StartView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\RunMenuView.xaml">
+    <Page Include="Views\TestYourMicrobots\TestYourMicrobotsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TestYourMicrobots\RunMenuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -164,11 +169,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\WorldView.xaml">
+    <Page Include="Views\TestYourMicrobots\LevelView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\WorldMenuView.xaml">
+    <Page Include="Views\TestYourMicrobots\LevelSelectView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -2,16 +2,16 @@
 
 namespace Microbots.View.Controllers
 {
-    public interface IWorldController { }
+    public interface ILevelController { }
 
-    public class WorldController : IWorldController
+    public class LevelController : ILevelController
     {
-        private readonly WorldViewModel _worldViewModel;
+        private readonly LevelViewModel _levelViewModel;
 
-        public WorldController(WorldViewModel worldViewModel)
+        public LevelController(LevelViewModel levelViewModel)
         {
-            _worldViewModel = worldViewModel;
-            _worldViewModel.WorldSquares = WorldViewModel.CreateWorldSquares(3, 3);
+            _levelViewModel = levelViewModel;
+            _levelViewModel.LevelSquares = LevelViewModel.CreateLevelSquares(10, 10);
         }
     }
 }

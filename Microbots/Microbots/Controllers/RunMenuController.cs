@@ -1,6 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using Microbots.Models.Exceptions;
+﻿using System.Diagnostics;
 using Microbots.View.ViewModels;
 using Microbots.View.ViewModels.Helpers;
 

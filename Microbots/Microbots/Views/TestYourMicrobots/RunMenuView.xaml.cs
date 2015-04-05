@@ -2,7 +2,7 @@
 using Microbots.View.ViewModels;
 using Microbots.View.ViewModels.Helpers;
 
-namespace Microbots.View.Views
+namespace Microbots.View.Views.TestYourMicrobots
 {
     public partial class RunMenuView
     {

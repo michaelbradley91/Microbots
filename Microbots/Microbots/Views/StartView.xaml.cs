@@ -1,20 +1,16 @@
-﻿using Microbots.View.ViewModels;
+﻿using Microbots.View.Views.TestYourMicrobots;
 
 namespace Microbots.View.Views
 {
     public partial class StartView
     {
-        public StartView(RunMenuView runMenuView, WorldMenuView worldMenuView, WorldView worldView, MessagesCollectionView messagesCollectionView, StartViewModel startViewModel)
+        public StartView(TestYourMicrobotsView testYourMicrobotsView, MessagesCollectionView messagesCollectionView)
         {
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
 
-            RunMenu.Child = runMenuView;
-            WorldMenu.Child = worldMenuView;
-            World.Child = worldView;
+            TestYourMicrobots.Child = testYourMicrobotsView;
             Messages.Child = messagesCollectionView;
-
-            DataContext = startViewModel;
         }
     }
 }

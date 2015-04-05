@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="Microbots.View.Views.TestYourMicrobots.LevelSelectView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModels="clr-namespace:Microbots.View.ViewModels"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance Type=viewModels:LevelSelectViewModel}">
+    <DockPanel Name="LevelSelectDockPanel" Background="LightGray" MaxWidth="300" MinWidth="300" LastChildFill="True">
+        <Label DockPanel.Dock="Top" FontSize="24" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" BorderBrush="DarkGray" BorderThickness="0,0,0,3">Select a Level</Label>
+        <Grid Name="OuterGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Canvas>
+                <Grid MaxHeight="{Binding ElementName=OuterGrid, Path=ActualHeight}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <ScrollViewer Height="{Binding ElementName=OuterGrid, Path=ActualHeight}" Width="{Binding ElementName=OuterGrid, Path=ActualWidth}" VerticalScrollBarVisibility="Auto" >
+                        <DockPanel Name="AvailableLevels">
+                            <ItemsControl ItemsSource="{Binding Path=Levels, Mode=OneWay}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate DataType="viewModels:LevelDescriptionViewModel">
+                                        <Border DockPanel.Dock="Top" BorderThickness="0,0,0,2" BorderBrush="DarkGray" Background="LightGray">
+                                            <DockPanel MaxWidth="{Binding ElementName=LevelSelectDockPanel, Path=MaxWidth}">
+                                                <TextBlock MaxWidth="{Binding ElementName=LevelSelectDockPanel, Path=MaxWidth}" TextWrapping="Wrap" Background="Transparent" FontSize="24" Foreground="Black" HorizontalAlignment="Stretch" Margin="15,5,15,5" Text="{Binding Path=Name, Mode=OneWay}" />
+                                            </DockPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </DockPanel>
+                    </ScrollViewer>
+                </Grid>
+            </Canvas>
+        </Grid>
+    </DockPanel>
+</UserControl>

@@ -2,17 +2,17 @@
 
 namespace Microbots.View.Controllers
 {
-    public interface IWorldMenuController
+    public interface ILevelSelectController
     {
     }
 
-    public class WorldMenuController : IWorldMenuController
+    public class LevelSelectController : ILevelSelectController
     {
-        private WorldMenuViewModel _worldMenuViewModel;
+        private LevelSelectViewModel _levelSelectViewModel;
 
-        public WorldMenuController(WorldMenuViewModel worldMenuViewModel)
+        public LevelSelectController(LevelSelectViewModel levelSelectViewModel)
         {
-            _worldMenuViewModel = worldMenuViewModel;
+            _levelSelectViewModel = levelSelectViewModel;
         }
     }
 }
